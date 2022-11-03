@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 
-import SearchSVG from '../../assets/images/Icons/search.svg';
+import SearchSVG from '../../assets/images/Icons/search.png';
 
 import { Container } from './styles';
 
@@ -33,6 +33,8 @@ export default function Conveniados() {
         }, 500)
     
         return () => clearTimeout(delayDebounceFn)
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [searchTerm])
 
 

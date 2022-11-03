@@ -1,7 +1,7 @@
 import { Container,CardItem } from "./styles";
-import heartIcon from '../../assets/images/Icons/heart.svg';
-import lightIcon from '../../assets/images/Icons/lightning.svg';
-import shopIcon from '../../assets/images/Icons/shopping.svg';
+import heartIcon from '../../assets/images/Icons/heart.png';
+import lightIcon from '../../assets/images/Icons/lightning.png';
+import shopIcon from '../../assets/images/Icons/shopping.png';
 
 export default function card() {
     return ( 
