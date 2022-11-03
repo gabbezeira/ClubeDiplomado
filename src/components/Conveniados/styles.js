@@ -119,6 +119,8 @@ export const Container = styled.div`
 
     img{
         margin-right: 1.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
     }
 
     input{
