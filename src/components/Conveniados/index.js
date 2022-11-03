@@ -45,7 +45,7 @@ export default function Conveniados() {
     
 
     <div className="input">
-        <img src={SearchSVG} />
+        <img src={SearchSVG} alt="ícone de lupa"/>
         <input onChange={(e) => setSearchTerm(e.target.value)} placeholder='Procure por um termo específico. Exemplo: “Academia”'/>
     </div>
 
