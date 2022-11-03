@@ -5,7 +5,7 @@ export default function Navbar(){
     return (
         <NavContainer>
             <Content>
-                <img rel="preconnect" class="logo" src={Logo} alt="Logo Clube Diplomado" />
+                <img class="logo" src={Logo} alt="Logo Clube Diplomado" />
                 <ul class="list">
                     <li><a href="/">Home</a></li>
                     <li><a href="/">Vantagens</a></li>
