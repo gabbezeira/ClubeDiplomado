@@ -32,9 +32,9 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper desktop"
       >
-        <SwiperSlide><img src={Banner} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={Banner} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={Banner} alt="Banner" /></SwiperSlide>
+        <SwiperSlide><img rel="preconnect" src={Banner} alt="Banner" /></SwiperSlide>
+        <SwiperSlide><img rel="preconnect" src={Banner} alt="Banner" /></SwiperSlide>
+        <SwiperSlide><img rel="preconnect" src={Banner} alt="Banner" /></SwiperSlide>
       </Swiper>
 
     {/* mobile */}
@@ -55,9 +55,9 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper mobile"
       >
-        <SwiperSlide><img src={BannerMobile} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={BannerMobile} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={BannerMobile} alt="Banner" /></SwiperSlide>
+        <SwiperSlide><img rel="preconnect" src={BannerMobile} alt="Banner" /></SwiperSlide>
+        <SwiperSlide><img rel="preconnect" src={BannerMobile} alt="Banner" /></SwiperSlide>
+        <SwiperSlide><img rel="preconnect" src={BannerMobile} alt="Banner" /></SwiperSlide>
       </Swiper>
     </Container>
   );
