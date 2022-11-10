@@ -25,7 +25,7 @@ export const Container = styled.div`
     }
   }
 
-  .form {
+  form {
     display: flex;
     flex-direction: column;
 

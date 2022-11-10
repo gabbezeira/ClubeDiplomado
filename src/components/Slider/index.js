@@ -8,21 +8,20 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Container } from "./styles";
+import { Container, Image } from "./styles";
 
 import { Pagination, Navigation } from "swiper";
 
 export default function App() {
-
   return (
     <Container>
       <Swiper
         style={{
-        '--swiper-navigation-color': '#FFF',
-        '--swiper-navigation-size': '30px',
-        '--swiper-pagination-color': '#FFF',
-        '--swiper-pagination-bullet-inactive-color': '#FFF',
-        '--swiper-pagination-bullet-inactive-opacity': '0.4',
+          "--swiper-navigation-color": "#FFF",
+          "--swiper-navigation-size": "30px",
+          "--swiper-pagination-color": "#FFF",
+          "--swiper-pagination-bullet-inactive-color": "#FFF",
+          "--swiper-pagination-bullet-inactive-opacity": "0.4",
         }}
         loop={true}
         pagination={{
@@ -32,20 +31,32 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper desktop"
       >
-        <SwiperSlide><img src={Banner} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={Banner} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={Banner} alt="Banner" /></SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={Banner} alt="Banner" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={Banner} alt="Banner" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={Banner} alt="Banner" />
+          </div>
+        </SwiperSlide>
       </Swiper>
 
-    {/* mobile */}
+      {/* mobile */}
 
       <Swiper
         style={{
-        '--swiper-navigation-color': '#FFF',
-        '--swiper-navigation-size': '30px',
-        '--swiper-pagination-color': '#FFF',
-        '--swiper-pagination-bullet-inactive-color': '#FFF',
-        '--swiper-pagination-bullet-inactive-opacity': '0.4',
+          "--swiper-navigation-color": "#FFF",
+          "--swiper-navigation-size": "30px",
+          "--swiper-pagination-color": "#FFF",
+          "--swiper-pagination-bullet-inactive-color": "#FFF",
+          "--swiper-pagination-bullet-inactive-opacity": "0.4",
         }}
         loop={true}
         pagination={{
@@ -55,9 +66,21 @@ export default function App() {
         modules={[Pagination, Navigation]}
         className="mySwiper mobile"
       >
-        <SwiperSlide><img src={BannerMobile} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={BannerMobile} alt="Banner" /></SwiperSlide>
-        <SwiperSlide><img src={BannerMobile} alt="Banner" /></SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={BannerMobile} alt="Banner" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={BannerMobile} alt="Banner" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="img-container">
+            <Image src={BannerMobile} alt="Banner" />
+          </div>
+        </SwiperSlide>
       </Swiper>
     </Container>
   );
