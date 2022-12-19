@@ -1,27 +1,22 @@
 import { Container } from "./styles";
-import InputMask from "react-input-mask";
 
 export default function Formulario() {
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
-
   return (
-    <Container id="inscrever">
+    <Container>
       <div className="header">
         <h2>Inscreva-se</h2>
         <div className="underline"></div>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <div className="form">
         <div className="row">
           <div className="input ">
             <label>Nome</label>
-            <input required placeholder="Digite seu nome completo" />
+            <input required placeholder="Digite seu nome completo" aria-label="Nome"/>
           </div>
           <div className="input ">
             <label>Curso</label>
-            <select name="cars" id="cars">
+            <select name="courses" id="courses">
               <option value="0">Selecione o curso concluído</option>
               <option value="saab">Curso 1</option>
               <option value="opel">Curso 2</option>
@@ -37,25 +32,23 @@ export default function Formulario() {
               type="email"
               required
               placeholder="Digite seu email principal"
+              aria-label="Email"
             />
           </div>
           <div id="telefone" className="input ">
             <label>Telefone</label>
-            <InputMask
-              mask="(99)99999-9999"
-              placeholder="Digite seu telefone"
-            />
+            <input type="number" placeholder="Digite seu telefone" aria-label="Telefone"/>
           </div>
         </div>
         <div className="row">
           <div className="input ">
             <label>Observações</label>
-            <input required style={{ minHeight: 85 }} />
+            <input required style={{ minHeight: 85 }} aria-label="Observações"/>
           </div>
         </div>
 
-        <button type="submit">Enviar</button>
-      </form>
+        <button>Enviar</button>
+      </div>
     </Container>
   );
 }
