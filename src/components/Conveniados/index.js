@@ -59,7 +59,9 @@ export default function Conveniados() {
                       {c.Beneficios.map((b) => {
                         return (
                           <p>
-                            <b>Benefício:</b> {b.PercDesconto}% {b.Observacao}
+                            <b>Benefício: </b> 
+                              { b.PercDesconto > 0 ?
+                                b.PercDesconto + '%' : b.ValorDesconto + ' reais'} {b.Observacao}
                             <b>Categoria:</b> {b.BeneficioCategoria}
                           </p>
                           );
