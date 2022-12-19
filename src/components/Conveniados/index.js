@@ -56,7 +56,9 @@ export default function Conveniados() {
               <div className="td" id="hide" style={{ flex: 2 }}>
                 <p>
                   <b>Benefício:</b> {item.benef} <br />{" "}
-                  <b>Categoria: {item.category}</b>{" "}
+                  <b>
+                    Categoria: {item.Contratos.Beneficios.BeneficioCategoria}
+                  </b>{" "}
                 </p>{" "}
               </div>
               <div className="td" id="hide">
