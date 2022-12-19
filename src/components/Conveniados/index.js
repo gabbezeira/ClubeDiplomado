@@ -9,7 +9,7 @@ export default function Conveniados() {
   const [filtroBusca, setFiltroBusca] = useState("");
 
   const linkEndereco = (latitude, longitude) => {
-    return `https://www.google.com/maps/search/?api=1&query=${longitude},${latitude}`;
+    return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
   };
 
   const ajustaNome = (nome) => {
@@ -74,7 +74,7 @@ export default function Conveniados() {
                     item.Endereco.TipoLogradouro + ' ' + item.Endereco.Logradouro + ' ' + item.Endereco.Numero + ', ' 
                     + item.Endereco.Complemento + ' ' + item.Endereco.Bairro + ' ' + item.Endereco.Cidade + ', ' + item.Endereco.UF
                 }
-                <a href={linkEndereco(item.Latitude, item.Longitude)}>
+                <a href={linkEndereco(item.Endereco.Latitude, item.Endereco.Longitude)}>
                   <button>Localizar no mapa</button>
                 </a>
               </div>
