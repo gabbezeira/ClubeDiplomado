@@ -70,8 +70,12 @@ export default function Conveniados() {
                   )})}
               </div>
               <div className="td" id="hide">
+                { 
+                    item.Endereco.TipoLogradouro + ' ' + item.Endereco.Logradouro + ' ' + item.Endereco.Numero + ', ' 
+                    + item.Endereco.Complemento + ' ' + item.Endereco.Bairro + ' ' + item.Endereco.Cidade + ', ' + item.Endereco.UF
+                }
                 <a href={linkEndereco(item.Latitude, item.Longitude)}>
-                  <button>Endereço</button>
+                  <button>Localizar no mapa</button>
                 </a>
               </div>
             </div>
