@@ -4,13 +4,12 @@ import { Container } from "./styles";
 import useParceiros from "../../hooks/useParceiros";
 
 export default function Conveniados() {
-  const { parceiros, carregaParceiros, pesquisaParceiros } = useParceiros();
-  const [categoriaFiltrada, setCategoriaFiltrada] = useState();
+
+  const { parceiros, pesquisaParceiros } = useParceiros();
   const [filtroBusca, setFiltroBusca] = useState("");
-  const [notFound, setNotFound] = useState(false);
 
   const linkEndereco = (latitude, longitude) => {
-    return `https://www.google.com/maps/search/?api=1&query=${longitude},${latitude}`;
+    return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
   };
 
   const ajustaNome = (nome) => {
@@ -22,14 +21,8 @@ export default function Conveniados() {
   };
 
   useEffect(() => {
-    if (filtroBusca && filtroBusca.length > 0) {
       pesquisaParceiros(filtroBusca);
-      parceiros.length === 0 ? setNotFound(true) : setNotFound(false);
-    } else {
-      setNotFound(false);
-      carregaParceiros(categoriaFiltrada);
-    }
-  }, [categoriaFiltrada, filtroBusca]);
+  }, [filtroBusca]);
 
   return (
     <Container>
@@ -41,35 +34,57 @@ export default function Conveniados() {
       <div className="input">
         <img src={SearchSVG} alt="ícone de lupa" />
         <input
-          onChange={(e) => pesquisaParceiros(e.target.value)}
+          onChange={(e) => setFiltroBusca(e.target.value)}
           placeholder="Procure por um termo específico. Exemplo: “Academia”"
         />
       </div>
 
+      { parceiros.length >= 1 ? 
       <div className="overflow">
         <div className="table">
           {parceiros.map((item) => (
-            <div className="tr">
+            <div className="tr" key={item.IdPessoa}>
               <div className="td">
-                <b>Conveniado: </b> {ajustaNome(item.Nome)}
+                <b>{ajustaNome(item.Nome)}</b>
               </div>
               <div className="td" id="hide" style={{ flex: 2 }}>
-                <p>
-                  <b>Benefício:</b> {item.benef} <br />{" "}
-                  <b>
-                    Categoria: {item.Contratos.Beneficios.BeneficioCategoria}
-                  </b>{" "}
-                </p>{" "}
+                { item.Contratos.map((c) => {
+                  return (
+                    <p id={c.IdContrato}>
+                      {c.Observacao &&
+                        <p>
+                          {c.Observacao} <br /><br />
+                        </p>
+                      }
+                      {c.Beneficios.map((b) => {
+                        return (
+                          <p>
+                            <b>Benefício: </b> 
+                              { b.PercDesconto > 0 ?
+                                b.PercDesconto + '%' : b.ValorDesconto + ' reais'} {b.Observacao}
+                            <b>Categoria:</b> {b.BeneficioCategoria}
+                          </p>
+                          );
+                      })}
+                    </p>
+                  )})}
               </div>
               <div className="td" id="hide">
-                <a href={linkEndereco(item.Latitude, item.Longitude)}>
-                  <button>Endereço</button>
+                { 
+                    item.Endereco.TipoLogradouro + ' ' + item.Endereco.Logradouro + ' ' + item.Endereco.Numero + ', ' 
+                    + item.Endereco.Complemento + ' ' + item.Endereco.Bairro + ' ' + item.Endereco.Cidade + ', ' + item.Endereco.UF
+                }
+                <a href={linkEndereco(item.Endereco.Latitude, item.Endereco.Longitude)}>
+                  <button>Localizar no mapa</button>
                 </a>
               </div>
             </div>
           ))}
         </div>
       </div>
+      :
+        <p>Nenhum parceiro encontrado para o termo buscado</p>
+      }
     </Container>
   );
 }

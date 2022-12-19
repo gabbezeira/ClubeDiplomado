@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://10.50.1.158:443/api/",
+  baseURL: "https://backendhomologacao.unipam.edu.br/br.edu.unipam.diplomado.api/api/v1",
 
   paramsSerializer: (params) => {
     let result = "";
