@@ -45,13 +45,27 @@ export default function Conveniados() {
           {parceiros.map((item) => (
             <div className="tr" key={item.IdPessoa}>
               <div className="td">
-                <b>Conveniado: </b> {ajustaNome(item.Nome)}
+                <b>{ajustaNome(item.Nome)}</b>
               </div>
               <div className="td" id="hide" style={{ flex: 2 }}>
-                <p>
-                  <b>Benefício:</b> {item.benef} <br />{" "}
-                  <b>Categoria: {item.category}</b>{" "}
-                </p>{" "}
+                { item.Contratos.map((c) => {
+                  return (
+                    <p id={c.IdContrato}>
+                      {c.Observacao &&
+                        <p>
+                          {c.Observacao} <br /><br />
+                        </p>
+                      }
+                      {c.Beneficios.map((b) => {
+                        return (
+                          <p>
+                            <b>Benefício:</b> {b.PercDesconto}% {b.Observacao}
+                            <b>Categoria:</b> {b.BeneficioCategoria}
+                          </p>
+                          );
+                      })}
+                    </p>
+                  )})}
               </div>
               <div className="td" id="hide">
                 <a href={linkEndereco(item.Latitude, item.Longitude)}>
