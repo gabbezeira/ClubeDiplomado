@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div` 
 .mySwiper {
   width: 100%;
   height: 40.875rem;
@@ -20,5 +20,13 @@ export const Container = styled.div`
     }
 }
 `
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export { Container, Image };
 
 
