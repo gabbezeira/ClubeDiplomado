@@ -5,8 +5,7 @@ export const NavContainer = styled.div`
 width: 100%;
 height: auto;
 padding: 0.625rem 8rem;
-background-color: #073B59;
-
+background-color: #073B59; 
 
 @media (max-width: 768px) {
     padding: 1.875rem 1rem;
