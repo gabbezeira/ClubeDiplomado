@@ -4,7 +4,7 @@ import { Content } from "./styles";
 
 export default function Vantagens(){
     return (
-        <Container>
+        <Container id="vantagens">
             <Content>
                 <div className="left">
                     <img class="logo" src={Armchair} alt="Poltrona com cartão do clube Diplomado" />

@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
+
 width: 100%;
 height: auto;
 padding: 0.625rem 8rem;
-background-color: #073B59; 
+background-color: #073B59;
+
 
 @media (max-width: 768px) {
     padding: 1.875rem 1rem;
@@ -46,22 +48,20 @@ font-family: 'Nunito', sans-serif;
             }
 
             .btn-subscribe {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 color: #FFF;
                 font-size: 1.0625rem;
                 font-weight: 500;
-
                 width: 7.5rem;
                 height: 2.625rem;
                 border-radius: 0.25rem;
                 text-align: center;
-
-                
                 background-color: ${({theme}) => theme.colors.primary};
                 border: none;
-
                 cursor: pointer;
                 transition: 1s all;
-
                 &:hover {
                     background-color: #FE5000D5;
                 }

@@ -2,7 +2,7 @@ import { Container } from "./styles";
 
 export default function Formulario() {
   return (
-    <Container>
+    <Container id="formulario">
       <div className="header">
         <h2>Inscreva-se</h2>
         <div className="underline"></div>

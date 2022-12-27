@@ -1,4 +1,7 @@
-import Navbar from "./components/Navbar";
+import { BrowserRouter } from 'react-router-dom'
+import { NavContainer, Content} from './styles/menu';
+import Logo from './assets/images/logo.webp';
+import { HashLink as Link } from 'react-router-hash-link';
 import Slider from "./components/Slider";
 import Card from "./components/Card";
 import Vantagens from "./components/Vantagens";
@@ -7,23 +10,30 @@ import Solicitar from "./components/Solicitar";
 import Footer from "./components/Footer";
 import Formulario from "./components/Formulario";
 
-import "./styles/default.css";
-import "./styles/global.js";
-import { ThemeProvider } from "styled-components";
-import theme from "./styles/theme";
-
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Navbar />
-      <Slider />
-      <Vantagens />
-      <Card />
-      <Conveniados />
-      <Solicitar />
-      <Formulario />
-      <Footer />
-    </ThemeProvider>
+    <BrowserRouter>
+      <div className="App">
+        <NavContainer>
+            <Content>
+                <img class="logo" src={Logo} alt="Logo Clube Diplomado" />
+                <ul class="list">
+                  {/* <li><Link to='#Home' smooth>Home</Link></li> */}
+                  <li><Link to='#vantagens' smooth>Vantagens</Link></li> 
+                  <li><Link to='#conveniados' smooth>Conveniados</Link></li>
+                  <Link to='#formulario' class="btn-subscribe" smooth>Formulario</Link>
+                </ul>
+            </Content>     
+        </NavContainer>
+        <Slider />
+        <Vantagens />
+        <Card />
+        <Conveniados />
+        <Solicitar />
+        <Formulario />
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
