@@ -49,7 +49,7 @@ export default function Conveniados() {
         <div className="table">
           {parceiros.map((item) => (
             <div className="tr" key={item.IdPessoa}>
-              <div className="td">
+              <div className="td" style={{justifyContent: 'center', fontSize: 20}}>
                 <b>{ajustaNome(item.Nome)}</b>
               </div>
               <div className="td" id="hide" style={{ flex: 2 }}>
