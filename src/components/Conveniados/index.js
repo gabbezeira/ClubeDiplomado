@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import SearchSVG from "../../assets/images/Icons/search.png";
 import { Container } from "./styles";
-import useParceiros from "../../hooks/useParceiros";
+import { buscaParceiros } from "../../services/requests/parceiros";
 
 export default function Conveniados() {
 
-  const { parceiros, pesquisaParceiros } = useParceiros();
+  const [ parceiros, setParceiros ] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
 
   const linkEndereco = (latitude, longitude) => {
@@ -20,8 +20,12 @@ export default function Conveniados() {
     return capitalizeName;
   };
 
-  useEffect(() => {
-      pesquisaParceiros(filtroBusca);
+  useEffect( () => {
+    const carregaParceiros = async() => { 
+      const resultado = await buscaParceiros(filtroBusca);
+      setParceiros(resultado);
+    }
+    carregaParceiros();
   }, [filtroBusca]);
 
   return (
