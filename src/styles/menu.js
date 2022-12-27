@@ -15,8 +15,34 @@ position: fixed;
 z-index: 100;
 width: 100%;
 height: auto;
-padding: 0.625rem 1rem;
+
 background-color: #073B59;
+
+.logo {
+ padding: 0.625rem 1rem;
+}
+
+.bm-burger-button {
+    position: fixed;
+    width: 3rem;
+    height: 3rem;
+    right: 36px;
+    top: 1.5rem;
+  }
+
+.bm-menu {
+    background-color: #073B59;
+    padding: 2.5em 0 0;
+    font-size: 1.15em;
+    width: 50%;
+}
+
+.bm-item {
+    font-family: 'Nunito', sans-serif;
+    color: #FFF;
+    margin-bottom: 10px;
+    padding: 0.3rem 1rem;
+  }
 `
 
 export const Content = styled.div`

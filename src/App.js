@@ -10,6 +10,8 @@ import Solicitar from "./components/Solicitar";
 import Footer from "./components/Footer";
 import Formulario from "./components/Formulario";
 import { isMobile } from 'react-device-detect';
+import { slide as Menu } from 'react-burger-menu';
+import BurgerIcon from './assets/images/burger-menu-icon.png';
 
 function App() {
 
@@ -30,6 +32,13 @@ function App() {
         :
         <NavContainerMobile>
           <Link to='#slider' smooth><img class="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
+          <div id="outer-container">
+            <Menu customBurgerIcon={ <img src={BurgerIcon} /> }>
+              <Link to='#vantagens' smooth>Vantagens</Link>
+              <Link to='#conveniados' smooth>Conveniados</Link>
+              <Link to='#formulario' class="btn-subscribe" smooth>Inscreva-se</Link>
+          </Menu>
+          </div>
         </NavContainerMobile> 
         }
         <Slider />
