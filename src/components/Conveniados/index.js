@@ -13,11 +13,12 @@ export default function Conveniados() {
   };
 
   const ajustaNome = (nome) => {
-    let lowerName = nome.toLowerCase();
-    let capitalizeName = lowerName.replace(/\b\w/g, function (l) {
-      return l.toUpperCase();
-    });
-    return capitalizeName;
+    // let lowerName = nome.toLowerCase();
+    // let capitalizeName = lowerName.replace(/\b\w/g, function (l) {
+    //   return l.toUpperCase();
+    // });
+    // return capitalizeName;
+    return nome;
   };
 
   useEffect( () => {
@@ -75,10 +76,11 @@ export default function Conveniados() {
               </div>
               <div className="td" id="hide">
                 { 
-                    item.Endereco.TipoLogradouro + ' ' + item.Endereco.Logradouro + ' ' + item.Endereco.Numero + ', ' 
-                    + item.Endereco.Complemento + ' ' + item.Endereco.Bairro + ' ' + item.Endereco.Cidade + ', ' + item.Endereco.UF
+                    item.Endereco?.TipoLogradouro + ' ' + item.Endereco?.Logradouro + ' ' + item.Endereco?.Numero + ', ' 
+                    + item.Endereco?.Complemento + ' ' + item.Endereco?.Bairro + ' ' + item.Endereco?.Cidade + ', ' 
+                    + item.Endereco?.UF
                 }
-                <a href={linkEndereco(item.Endereco.Latitude, item.Endereco.Longitude)}>
+                <a href={linkEndereco(item.Endereco?.Latitude, item.Endereco?.Longitude)}>
                   <button>Localizar no mapa</button>
                 </a>
               </div>
