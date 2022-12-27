@@ -1,5 +1,5 @@
 import { BrowserRouter } from 'react-router-dom'
-import { NavContainer, Content} from './styles/menu';
+import { NavContainer, NavContainerMobile, Content} from './styles/menu';
 import Logo from './assets/images/logo.webp';
 import { HashLink as Link } from 'react-router-hash-link';
 import Slider from "./components/Slider";
@@ -9,12 +9,14 @@ import Conveniados from "./components/Conveniados";
 import Solicitar from "./components/Solicitar";
 import Footer from "./components/Footer";
 import Formulario from "./components/Formulario";
+import { isMobile } from 'react-device-detect';
 
 function App() {
 
   return (
     <BrowserRouter>
       <div className="App">
+        { !isMobile ? 
         <NavContainer>
             <Content>
                 <Link to='#slider' smooth><img class="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
@@ -25,6 +27,11 @@ function App() {
                 </ul>
             </Content>     
         </NavContainer>
+        :
+        <NavContainerMobile>
+          <Link to='#slider' smooth><img class="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
+        </NavContainerMobile> 
+        }
         <Slider />
         <Vantagens />
         <Card />

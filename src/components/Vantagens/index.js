@@ -10,7 +10,7 @@ export default function Vantagens(){
                     <img class="logo" src={Armchair} style={{marginTop: '5rem'}} alt="Poltrona com cartão do clube Diplomado" />
                 </div>
                 <div className="right">
-                    <div className="content-right">
+                    <div className="content-right" style={{marginTop: '5rem'}}>
                         <h1>Vantagens</h1>
                         <div className="underline" />
                         <p className="text-right">Aluno do Unipam é mesmo muito especial. Mas e o que acontece

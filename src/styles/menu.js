@@ -9,6 +9,16 @@ height: auto;
 padding: 0.625rem 8rem;
 background-color: #073B59;
 `
+export const NavContainerMobile = styled.div`
+top: 0;
+position: fixed;
+z-index: 100;
+width: 100%;
+height: auto;
+padding: 0.625rem 1rem;
+background-color: #073B59;
+`
+
 export const Content = styled.div`
 display: flex;
 justify-content: space-between;
