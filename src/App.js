@@ -18,10 +18,9 @@ function App() {
             <Content>
                 <img class="logo" src={Logo} alt="Logo Clube Diplomado" />
                 <ul class="list">
-                  {/* <li><Link to='#Home' smooth>Home</Link></li> */}
                   <li><Link to='#vantagens' smooth>Vantagens</Link></li> 
                   <li><Link to='#conveniados' smooth>Conveniados</Link></li>
-                  <Link to='#formulario' class="btn-subscribe" smooth>Formulario</Link>
+                  <Link to='#formulario' class="btn-subscribe" smooth>Inscreva-se</Link>
                 </ul>
             </Content>     
         </NavContainer>
