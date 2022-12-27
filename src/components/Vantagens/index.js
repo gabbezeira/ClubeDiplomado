@@ -6,8 +6,8 @@ export default function Vantagens(){
     return (
         <Container id="vantagens">
             <Content>
-                <div className="left">
-                    <img class="logo" src={Armchair} alt="Poltrona com cartão do clube Diplomado" />
+                <div className="left" >
+                    <img class="logo" src={Armchair} style={{marginTop: '5rem'}} alt="Poltrona com cartão do clube Diplomado" />
                 </div>
                 <div className="right">
                     <div className="content-right">

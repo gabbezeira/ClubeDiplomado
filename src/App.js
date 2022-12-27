@@ -17,7 +17,7 @@ function App() {
       <div className="App">
         <NavContainer>
             <Content>
-                <img class="logo" src={Logo} alt="Logo Clube Diplomado" />
+                <Link to='#slider' smooth><img class="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
                 <ul class="list">
                   <li><Link to='#vantagens' smooth>Vantagens</Link></li> 
                   <li><Link to='#conveniados' smooth>Conveniados</Link></li>

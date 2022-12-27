@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const NavContainer = styled.div`
-
+top: 0;
+position: fixed;
+z-index: 100;
 width: 100%;
 height: auto;
 padding: 0.625rem 8rem;
-background-color: #073B59; 
-
-@media (max-width: 768px) {
-    padding: 1.875rem 1rem;
-}
+background-color: #073B59;
 `
 export const Content = styled.div`
 display: flex;
@@ -66,10 +64,4 @@ font-family: 'Nunito', sans-serif;
                 }
             }
     }
-
-@media (max-width: 768px) {
-    .list {
-        display: none;
-    }
-}
 `

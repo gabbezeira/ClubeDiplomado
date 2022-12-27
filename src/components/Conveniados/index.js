@@ -31,7 +31,7 @@ export default function Conveniados() {
 
   return (
     <Container id="conveniados">
-      <div className="header">
+      <div className="header" style={{marginTop: '5rem'}}>
         <h2>Conveniados</h2>
         <div className="underline"></div>
       </div>
