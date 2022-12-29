@@ -37,26 +37,26 @@ export const Container = styled.div`
       background-color: ${({ theme }) => theme.colors.button};
 
       font-family: "open sans", sans-serif;
-      font-size: 20px;
+      font-size: 1.25rem;
       color: white;
 
-      padding: 16px 0;
+      padding: 1rem 0;
 
-      width: 120px;
+      width: 7.5rem;
 
       margin: 0 auto;
 
       border: none;
-      border-radius: 4px;
+      border-radius: 0.25rem;
     }
 
     .row {
       display: flex;
-      gap: 40px;
+      gap: 2.5rem;
 
       width: 100%;
 
-      margin-bottom: 25px;
+      margin-bottom: 1.5625rem;
 
       label {
         font-size: 1rem;
@@ -70,15 +70,15 @@ export const Container = styled.div`
 
       input,
       select {
-        height: 56px;
+        height: 3.5rem;
         width: 100%;
 
-        padding: 16px;
-        margin-top: 8px;
+        padding: 1rem;
+        margin-top: 0.5rem;
 
         border: 1px solid rgba(199, 199, 199, 0.4) !important;
         outline: none;
-        outline-offset: -1px;
+        outline-offset: -0.0625rem;
 
         background-color: rgba(199, 199, 199, 0.04);
 

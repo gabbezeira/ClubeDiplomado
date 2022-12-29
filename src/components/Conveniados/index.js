@@ -4,8 +4,7 @@ import { Container } from "./styles";
 import { buscaParceiros } from "../../services/requests/parceiros";
 
 export default function Conveniados() {
-
-  const [ parceiros, setParceiros ] = useState([]);
+  const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
 
   const linkEndereco = (latitude, longitude) => {
@@ -15,23 +14,26 @@ export default function Conveniados() {
   const ajustaNome = (nome) => {
     let lowerName = nome.toLowerCase();
 
-    let capitalizeName = lowerName.split(' ').map((word) => {
+    let capitalizeName = lowerName
+      .split(" ")
+      .map((word) => {
         return word.charAt(0).toUpperCase() + word.slice(1);
-      }).join(' ');
+      })
+      .join(" ");
     return capitalizeName;
   };
 
-  useEffect( () => {
-    const carregaParceiros = async() => { 
+  useEffect(() => {
+    const carregaParceiros = async () => {
       const resultado = await buscaParceiros(filtroBusca);
       setParceiros(resultado);
-    }
+    };
     carregaParceiros();
   }, [filtroBusca]);
 
   return (
     <Container id="conveniados">
-      <div className="header" style={{marginTop: '5rem'}}>
+      <div className="header" style={{ marginTop: "5rem" }}>
         <h2>Conveniados</h2>
         <div className="underline"></div>
       </div>
@@ -44,57 +46,81 @@ export default function Conveniados() {
         />
       </div>
 
-      { parceiros.length >= 1 ? 
-      <div className="overflow">
-        <div className="table">
-          {parceiros.map((item) => (
-            <div className="tr" key={item.IdPessoa}>
-              <div className="td" style={{justifyContent: 'center', fontSize: 20}}>
-                <b>{ajustaNome(item.Nome)}</b>
-              </div>
-              <div className="td" id="hide" style={{ flex: 2 }}>
-                { item.Contratos.map((c) => {
-                  return (
-                    <p id={c.IdContrato}>
-                      {c.Observacao &&
-                        <p>
-                          {c.Observacao} <br /><br />
-                        </p>
-                      }
-                      {c.Beneficios.map((b) => {
-                        return (
+      {parceiros.length >= 1 ? (
+        <div className="overflow">
+          <div className="table">
+            {parceiros.map((item) => (
+              <div className="tr" key={item.IdPessoa}>
+                <div className="td" style={{ justifyContent: "left" }}>
+                  <b>{ajustaNome(item.Nome)}</b>
+                </div>
+                <div className="td" id="hide" style={{ flex: 2 }}>
+                  {item.Contratos.map((c) => {
+                    return (
+                      <p id={c.IdContrato}>
+                        {c.Observacao && (
                           <p>
-                            <b>Benefício: </b> 
-                              { b.PercDesconto > 0 ?
-                                b.PercDesconto + '%' : b.ValorDesconto + ' reais'} {b.Observacao}
-                            <b>Categoria:</b> {b.BeneficioCategoria}
+                            {c.Observacao} <br />
+                            <br />
                           </p>
+                        )}
+                        {c.Beneficios.map((b) => {
+                          return (
+                            <p>
+                              <b>Benefício: </b>
+                              {b.PercDesconto > 0
+                                ? b.PercDesconto + "%"
+                                : b.ValorDesconto + " reais"}{" "}
+                              {b.Observacao}
+                              <b style={{ marginLeft: "0.575rem" }}>
+                                Categoria:
+                              </b>{" "}
+                              {b.BeneficioCategoria}
+                            </p>
                           );
-                      })}
-                    </p>
-                  )})}
-              </div>
-              <div className="td" id="hide" >
-                <div style={{textAlign: "center", marginInline: '2rem'}}>
-                  { 
-                      item.Endereco?.TipoLogradouro + ' ' + item.Endereco?.Logradouro + ' ' + item.Endereco?.Numero + ', ' 
-                      + item.Endereco?.Complemento + ' ' + item.Endereco?.Bairro + ' ' + item.Endereco?.Cidade + ', ' 
-                      + item.Endereco?.UF
-                  }
+                        })}
+                      </p>
+                    );
+                  })}
                 </div>
-                <div >
-                  <a href={linkEndereco(item.Endereco?.Latitude, item.Endereco?.Longitude)}>
-                    <button >Localizar no mapa</button>
-                  </a>
+                <div className="td" id="hide">
+                  <div style={{ textAlign: "left" }}>
+                    {item.Endereco?.TipoLogradouro +
+                      " " +
+                      item.Endereco?.Logradouro +
+                      " " +
+                      item.Endereco?.Numero +
+                      ", " +
+                      item.Endereco?.Complemento +
+                      " " +
+                      item.Endereco?.Bairro +
+                      " " +
+                      item.Endereco?.Cidade +
+                      ", " +
+                      item.Endereco?.UF}
+                  </div>
+                  <div>
+                    <a
+                      href={linkEndereco(
+                        item.Endereco?.Latitude,
+                        item.Endereco?.Longitude
+                      )}
+                    >
+                      <button style={{ marginLeft: "0.875rem" }}>
+                        Localizar no mapa
+                      </button>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-      :
-        <p>Nenhum parceiro encontrado para o termo buscado</p>
-      }
+      ) : (
+        <p className="none-search">
+          Nenhum parceiro encontrado para o termo buscado
+        </p>
+      )}
     </Container>
   );
 }
