@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import SearchSVG from "../../assets/images/Icons/search.png";
 import { Container } from "./styles";
-import useParceiros from "../../hooks/useParceiros";
+import { buscaParceiros } from "../../services/requests/parceiros";
 
 export default function Conveniados() {
 
-  const { parceiros, pesquisaParceiros } = useParceiros();
+  const [ parceiros, setParceiros ] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
 
   const linkEndereco = (latitude, longitude) => {
@@ -14,19 +14,24 @@ export default function Conveniados() {
 
   const ajustaNome = (nome) => {
     let lowerName = nome.toLowerCase();
-    let capitalizeName = lowerName.replace(/\b\w/g, function (l) {
-      return l.toUpperCase();
-    });
+
+    let capitalizeName = lowerName.split(' ').map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      }).join(' ');
     return capitalizeName;
   };
 
-  useEffect(() => {
-      pesquisaParceiros(filtroBusca);
+  useEffect( () => {
+    const carregaParceiros = async() => { 
+      const resultado = await buscaParceiros(filtroBusca);
+      setParceiros(resultado);
+    }
+    carregaParceiros();
   }, [filtroBusca]);
 
   return (
-    <Container>
-      <div className="header">
+    <Container id="conveniados">
+      <div className="header" style={{marginTop: '5rem'}}>
         <h2>Conveniados</h2>
         <div className="underline"></div>
       </div>
@@ -44,7 +49,7 @@ export default function Conveniados() {
         <div className="table">
           {parceiros.map((item) => (
             <div className="tr" key={item.IdPessoa}>
-              <div className="td">
+              <div className="td" style={{justifyContent: 'center', fontSize: 20}}>
                 <b>{ajustaNome(item.Nome)}</b>
               </div>
               <div className="td" id="hide" style={{ flex: 2 }}>
@@ -69,14 +74,19 @@ export default function Conveniados() {
                     </p>
                   )})}
               </div>
-              <div className="td" id="hide">
-                { 
-                    item.Endereco.TipoLogradouro + ' ' + item.Endereco.Logradouro + ' ' + item.Endereco.Numero + ', ' 
-                    + item.Endereco.Complemento + ' ' + item.Endereco.Bairro + ' ' + item.Endereco.Cidade + ', ' + item.Endereco.UF
-                }
-                <a href={linkEndereco(item.Endereco.Latitude, item.Endereco.Longitude)}>
-                  <button>Localizar no mapa</button>
-                </a>
+              <div className="td" id="hide" >
+                <div style={{textAlign: "center", marginInline: '2rem'}}>
+                  { 
+                      item.Endereco?.TipoLogradouro + ' ' + item.Endereco?.Logradouro + ' ' + item.Endereco?.Numero + ', ' 
+                      + item.Endereco?.Complemento + ' ' + item.Endereco?.Bairro + ' ' + item.Endereco?.Cidade + ', ' 
+                      + item.Endereco?.UF
+                  }
+                </div>
+                <div >
+                  <a href={linkEndereco(item.Endereco?.Latitude, item.Endereco?.Longitude)}>
+                    <button >Localizar no mapa</button>
+                  </a>
+                </div>
               </div>
             </div>
           ))}

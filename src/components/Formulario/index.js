@@ -2,8 +2,8 @@ import { Container } from "./styles";
 
 export default function Formulario() {
   return (
-    <Container>
-      <div className="header">
+    <Container id="formulario" >
+      <div className="header" style={{marginTop: '5rem'}}>
         <h2>Inscreva-se</h2>
         <div className="underline"></div>
       </div>
