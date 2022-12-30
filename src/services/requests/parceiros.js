@@ -8,11 +8,11 @@ async function buscaParceiros(filtroBusca) {
 
     if (filtroBusca) {
       resultado = await api.get(
-        `/Parceiro/PesquisarParceirosComContratosNaoVencidos/${filtroBusca}`
+        `/br.edu.unipam.clubediplomado.api/api/v1/Parceiro/PesquisarParceirosComContratosNaoVencidos/${filtroBusca}`
       );
     } else {
       resultado = await api.get(
-        "/Parceiro/ListarParceirosComContratosNaoVencidos"
+        "/br.edu.unipam.clubediplomado.api/api/v1/Parceiro/ListarParceirosComContratosNaoVencidos"
       );
     }
 

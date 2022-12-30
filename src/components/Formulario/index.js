@@ -1,6 +1,20 @@
+import { useState, useEffect } from "react";
+import { buscaCursos } from "../../services/requests/cursos";
 import { Container } from "./styles";
 
 export default function Formulario() {
+
+  const [cursos, setCursos] = useState([]);
+
+  useEffect(() => {
+    const carregaCursos = async () => {
+      const resultado = await buscaCursos();
+      setCursos(resultado);
+    };
+    carregaCursos();
+  }, []);
+
+
   return (
     <Container id="formulario" >
       <div className="header" style={{marginTop: '5rem'}}>
@@ -16,11 +30,10 @@ export default function Formulario() {
           </div>
           <div className="input ">
             <label>Curso</label>
+            
             <select name="courses" id="courses">
               <option value="0">Selecione o curso concluído</option>
-              <option value="saab">Curso 1</option>
-              <option value="opel">Curso 2</option>
-              <option value="audi">Curso 3</option>
+              { cursos.map((item) =>  <option value={item.Nome}>{item.Nome}</option> ) }
             </select>
           </div>
         </div>

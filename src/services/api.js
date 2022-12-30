@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL:
-    "https://publicws.unipam.edu.br/br.edu.unipam.clubediplomado.api/api/v1",
+    "https://publicws.unipam.edu.br",
 });
 
 api.interceptors.request.use(
