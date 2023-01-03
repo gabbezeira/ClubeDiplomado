@@ -49,13 +49,18 @@ export default function Conveniados() {
       {parceiros.length >= 1 ? (
         <div className="overflow">
           <div className="table">
-            {parceiros.map((item) => (
-              <div className="tr" key={item.IdPessoa}>
+            {parceiros.map((parceiro) => (
+              <div className="tr" key={parceiro.IdPessoa}>
                 <div className="td" style={{ justifyContent: "left" }}>
-                  <b>{ajustaNome(item.Nome)}</b>
+                  <b>
+                  { parceiro.PessoaJuridica?.NomeFantasia ? 
+                      ajustaNome(parceiro.PessoaJuridica?.NomeFantasia) :
+                      ajustaNome(parceiro.Nome)
+                  }
+                  </b>
                 </div>
                 <div className="td" id="hide" style={{ flex: 2 }}>
-                  {item.Contratos.map((c) => {
+                  {parceiro.Contratos.map((c) => {
                     return (
                       <p id={c.IdContrato}>
                         {c.Observacao && (
@@ -85,25 +90,25 @@ export default function Conveniados() {
                 </div>
                 <div className="td" id="hide">
                   <div style={{ textAlign: "left" }}>
-                    {item.Endereco?.TipoLogradouro +
+                    {parceiro.Endereco?.TipoLogradouro +
                       " " +
-                      item.Endereco?.Logradouro +
+                      parceiro.Endereco?.Logradouro +
                       " " +
-                      item.Endereco?.Numero +
+                      parceiro.Endereco?.Numero +
                       ", " +
-                      item.Endereco?.Complemento +
+                      parceiro.Endereco?.Complemento +
                       " " +
-                      item.Endereco?.Bairro +
+                      parceiro.Endereco?.Bairro +
                       " " +
-                      item.Endereco?.Cidade +
+                      parceiro.Endereco?.Cidade +
                       ", " +
-                      item.Endereco?.UF}
+                      parceiro.Endereco?.UF}
                   </div>
                   <div>
                     <a
                       href={linkEndereco(
-                        item.Endereco?.Latitude,
-                        item.Endereco?.Longitude
+                        parceiro.Endereco?.Latitude,
+                        parceiro.Endereco?.Longitude
                       )}
                     >
                       <button style={{ marginLeft: "0.875rem" }}>
