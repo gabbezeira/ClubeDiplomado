@@ -33,7 +33,7 @@ function App() {
         <NavContainerMobile>
           <Link to='#slider' smooth><img className="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
           <div id="outer-container">
-            <Menu customBurgerIcon={ <img src={BurgerIcon} /> }>
+            <Menu customBurgerIcon={ <img src={BurgerIcon} alt="Menu para dispositivos modile" /> }>
               <Link to='#vantagens' smooth>Vantagens</Link>
               <Link to='#conveniados' smooth>Conveniados</Link>
               <Link to='#formulario' className="btn-subscribe" smooth>Inscreva-se</Link>
