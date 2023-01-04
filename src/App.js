@@ -21,22 +21,22 @@ function App() {
         { !isMobile ? 
         <NavContainer>
             <Content>
-                <Link to='#slider' smooth><img class="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
-                <ul class="list">
+                <Link to='#slider' smooth><img className="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
+                <ul className="list">
                   <li><Link to='#vantagens' smooth>Vantagens</Link></li> 
                   <li><Link to='#conveniados' smooth>Conveniados</Link></li>
-                  <Link to='#formulario' class="btn-subscribe" smooth>Inscreva-se</Link>
+                  <Link to='#formulario' className="btn-subscribe" smooth>Inscreva-se</Link>
                 </ul>
             </Content>     
         </NavContainer>
         :
         <NavContainerMobile>
-          <Link to='#slider' smooth><img class="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
+          <Link to='#slider' smooth><img className="logo" src={Logo} alt="Logo Clube Diplomado" /></Link>
           <div id="outer-container">
             <Menu customBurgerIcon={ <img src={BurgerIcon} /> }>
               <Link to='#vantagens' smooth>Vantagens</Link>
               <Link to='#conveniados' smooth>Conveniados</Link>
-              <Link to='#formulario' class="btn-subscribe" smooth>Inscreva-se</Link>
+              <Link to='#formulario' className="btn-subscribe" smooth>Inscreva-se</Link>
           </Menu>
           </div>
         </NavContainerMobile> 

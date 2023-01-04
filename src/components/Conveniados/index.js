@@ -62,7 +62,7 @@ export default function Conveniados() {
                 <div className="td" id="hide" style={{ flex: 2 }}>
                   {parceiro.Contratos.map((c) => {
                     return (
-                      <p id={c.IdContrato}>
+                      <div key={c.IdContrato}>
                         {c.Observacao && (
                           <p>
                             {c.Observacao} <br />
@@ -71,7 +71,7 @@ export default function Conveniados() {
                         )}
                         {c.Beneficios.map((b) => {
                           return (
-                            <p>
+                            <p key={b.IdBeneficio}>
                               <b>Benefício: </b>
                               {b.PercDesconto > 0
                                 ? b.PercDesconto + "%"
@@ -84,7 +84,7 @@ export default function Conveniados() {
                             </p>
                           );
                         })}
-                      </p>
+                      </div>
                     );
                   })}
                 </div>
