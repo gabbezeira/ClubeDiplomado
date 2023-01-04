@@ -39,7 +39,7 @@ export const Container = styled.div`
       background-color: #034870;
     }
 
-    .btn-solicitar {
+    .solicitar {
       padding: 1.25rem 4.5rem;
       font-family: "Open Sans", sans-serif;
       color: #fff;

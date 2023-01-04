@@ -9,7 +9,7 @@ export default function Solicitar() {
         começar a aproveitar as vantagens!
       </div>
       <button className="btn-solicitar">
-        <Link className="btn-solicitar" to="#formulario" smooth>
+        <Link className="solicitar" to="#formulario" smooth>
           Solicitar
         </Link>
       </button>
