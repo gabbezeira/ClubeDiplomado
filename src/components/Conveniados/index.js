@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchSVG from "../../assets/images/Icons/search.png";
 import { Container } from "./styles";
 import { buscaParceiros } from "../../services/requests/parceiros";
+import {isMobile} from 'react-device-detect';
 
 export default function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
