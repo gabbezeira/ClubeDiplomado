@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color:${({theme}) => theme.colors.button};
-  display:flex;
+  background-color: ${({ theme }) => theme.colors.button};
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -17,4 +17,8 @@ export const Container = styled.div`
     color: #fff;
   }
 
-`
+  @media (max-width: 768px) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+`;
