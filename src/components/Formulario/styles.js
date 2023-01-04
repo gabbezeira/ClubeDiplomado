@@ -14,8 +14,7 @@ export const Container = styled.div`
     font-family: "nunito", sans-serif;
     font-weight: bold;
     color: #404040;
-
-    margin-bottom: 3.5rem;
+    margin: 3.5rem 0;
 
     .underline {
       background-color: ${({ theme }) => theme.colors.primary};
@@ -66,21 +65,14 @@ export const Container = styled.div`
 
       .input {
         flex: 1;
+
+        .text-area {
+          min-height: 6.5rem;
+        }
       }
 
       input,
       select {
-<<<<<<< HEAD
-        height: 56px;
-        width: 100%;
-
-        padding: 16px;
-        margin-top: 8px;
-
-        border: 1px solid rgba(199, 199, 199, 0.4) !important;
-        outline: none;
-        outline-offset: -1px;
-=======
         height: 3.5rem;
         width: 100%;
 
@@ -90,7 +82,6 @@ export const Container = styled.div`
         border: 1px solid rgba(199, 199, 199, 0.4) !important;
         outline: none;
         outline-offset: -0.0625rem;
->>>>>>> 66195253b2cb598aec781368be7e034cdea4c368
 
         background-color: rgba(199, 199, 199, 0.04);
 

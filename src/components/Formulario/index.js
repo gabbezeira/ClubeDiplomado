@@ -4,7 +4,6 @@ import { inscreverAluno } from "../../services/requests/inscricoes";
 import { Container } from "./styles";
 
 export default function Formulario() {
-
   const [cursos, setCursos] = useState([]);
   const [msg, setMsg] = useState('');
 
@@ -39,10 +38,9 @@ export default function Formulario() {
     carregaCursos();
   }, []);
 
-
   return (
-    <Container id="formulario" >
-      <div className="header" style={{ marginTop: '5rem' }}>
+    <Container id="formulario">
+      <div className="header">
         <h2>Inscreva-se</h2>
         <div className="underline"></div>
       </div>
@@ -100,7 +98,7 @@ export default function Formulario() {
           </div>
         </div>
         <div className="row">
-          <div className="input ">
+          <div className="input">
             <label>Observações</label>
             <input  
               name="Observacoes"

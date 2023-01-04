@@ -33,7 +33,7 @@ export default function Conveniados() {
 
   return (
     <Container id="conveniados">
-      <div className="header" style={{ marginTop: "5rem" }}>
+      <div className="header">
         <h2>Conveniados</h2>
         <div className="underline"></div>
       </div>
@@ -51,15 +51,14 @@ export default function Conveniados() {
           <div className="table">
             {parceiros.map((parceiro) => (
               <div className="tr" key={parceiro.IdPessoa}>
-                <div className="td" style={{ justifyContent: "left" }}>
+                <div className="td">
                   <b>
-                  { parceiro.PessoaJuridica?.NomeFantasia ? 
-                      ajustaNome(parceiro.PessoaJuridica?.NomeFantasia) :
-                      ajustaNome(parceiro.Nome)
-                  }
+                    {parceiro.PessoaJuridica?.NomeFantasia
+                      ? ajustaNome(parceiro.PessoaJuridica?.NomeFantasia)
+                      : ajustaNome(parceiro.Nome)}
                   </b>
                 </div>
-                <div className="td" id="hide" style={{ flex: 2 }}>
+                <div className="td" id="hide">
                   {parceiro.Contratos.map((c) => {
                     return (
                       <div key={c.IdContrato}>
@@ -77,9 +76,7 @@ export default function Conveniados() {
                                 ? b.PercDesconto + "%"
                                 : b.ValorDesconto + " reais"}{" "}
                               {b.Observacao}
-                              <b style={{ marginLeft: "0.575rem" }}>
-                                Categoria:
-                              </b>{" "}
+                              <b className="b-categoria">Categoria:</b>{" "}
                               {b.BeneficioCategoria}
                             </p>
                           );
@@ -89,7 +86,7 @@ export default function Conveniados() {
                   })}
                 </div>
                 <div className="td" id="hide">
-                  <div style={{ textAlign: "left" }}>
+                  <div>
                     {parceiro.Endereco?.TipoLogradouro +
                       " " +
                       parceiro.Endereco?.Logradouro +
@@ -111,9 +108,7 @@ export default function Conveniados() {
                         parceiro.Endereco?.Longitude
                       )}
                     >
-                      <button style={{ marginLeft: "0.875rem" }}>
-                        Localizar no mapa
-                      </button>
+                      <button>Localizar no mapa</button>
                     </a>
                   </div>
                 </div>

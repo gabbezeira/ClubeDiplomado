@@ -56,34 +56,39 @@ export const Container = styled.div`
     .tr {
       display: flex;
       color: ${({ theme }) => theme.colors.textLight};
-    }
 
-    .td {
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      flex: 1;
-      padding: 1rem;
+      .td {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex: 1;
+        padding: 1rem;
+        text-align: left;
+        border: 0.0625rem solid rgba(199, 199, 199, 0.4);
 
-      border: 0.0625rem solid rgba(199, 199, 199, 0.4);
+        .b-categoria {
+          margin-left: 0.575rem;
+        }
 
-      b {
-        color: rgba(7, 59, 89, 0.8);
-      }
+        b {
+          color: rgba(7, 59, 89, 0.8);
+        }
 
-      button {
-        padding: 0.5625rem 1.5rem;
-        background-color: ${({ theme }) => theme.colors.button};
-        border-radius: 0.25rem;
-        border: none;
-        color: white;
-        font-family: "open sans", sans-serif;
-        transition: all 1s;
+        button {
+          padding: 0.5625rem 1.5rem;
+          background-color: ${({ theme }) => theme.colors.button};
+          border-radius: 0.25rem;
+          border: none;
+          color: white;
+          font-family: "open sans", sans-serif;
+          transition: all 1s;
+          margin-left: 0.875rem;
 
-        cursor: pointer;
+          cursor: pointer;
 
-        &:hover {
-          background-color: #034870;
+          &:hover {
+            background-color: #034870;
+          }
         }
       }
     }
@@ -94,8 +99,7 @@ export const Container = styled.div`
     font-family: "nunito", sans-serif;
     font-weight: bold;
     color: #404040;
-
-    margin-bottom: 3.5rem;
+    margin: 3.5rem 0;
 
     .underline {
       background-color: ${({ theme }) => theme.colors.primary};
