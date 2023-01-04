@@ -75,6 +75,8 @@ export const Container = styled.div`
         }
 
         button {
+          width: 7.5rem;
+          height: 3.125rem;
           padding: 0.5625rem 1.5rem;
           background-color: ${({ theme }) => theme.colors.button};
           border-radius: 0.25rem;
