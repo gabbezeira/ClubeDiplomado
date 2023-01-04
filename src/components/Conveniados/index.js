@@ -101,14 +101,11 @@ export default function Conveniados() {
                       ", " +
                       parceiro.Endereco?.UF}
                   </div>
-                  <div>
-                    <a
-                      href={linkEndereco(
-                        parceiro.Endereco?.Latitude,
-                        parceiro.Endereco?.Longitude
-                      )}
-                    >
-                      <button>Localizar no mapa</button>
+                </div>
+                <div className="td" id="hide">
+                  <div className="btn-call">
+                    <a href="tel:34996937841">
+                      <button>Ligar</button>
                     </a>
                   </div>
                 </div>
