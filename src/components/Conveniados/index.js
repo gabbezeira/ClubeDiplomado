@@ -52,7 +52,18 @@ export default function Conveniados() {
         <div className="overflow">
           <div className="table">
             {parceiros.map((parceiro) => (
+              isMobile ?
               <div className="tr" key={parceiro.IdPessoa}>
+                <div className="td">
+                  <b>
+                    {parceiro.PessoaJuridica?.NomeFantasia
+                      ? ajustaNome(parceiro.PessoaJuridica?.NomeFantasia)
+                      : ajustaNome(parceiro.Nome)}
+                  </b>
+                </div>
+              </div> :
+              <div className="tr" key={parceiro.IdPessoa}>
+
                 <div className="td">
                   <b>
                     {parceiro.PessoaJuridica?.NomeFantasia
@@ -113,6 +124,7 @@ export default function Conveniados() {
                   </div>
                 </div>
               </div>
+             
             ))}
           </div>
         </div>
