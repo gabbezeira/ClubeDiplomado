@@ -27,7 +27,7 @@ export default function Formulario() {
     setMsg(response?.Result);
       setTimeout(() => {
         setMsg('')
-      }, 2000);
+      }, 5000);
   }
 
   useEffect(() => {
