@@ -3,7 +3,6 @@ import { buscaCursos } from "../../services/requests/cursos";
 import { Container } from "./styles";
 
 export default function Formulario() {
-
   const [cursos, setCursos] = useState([]);
 
   useEffect(() => {
@@ -14,10 +13,9 @@ export default function Formulario() {
     carregaCursos();
   }, []);
 
-
   return (
-    <Container id="formulario" >
-      <div className="header" style={{marginTop: '5rem'}}>
+    <Container id="formulario">
+      <div className="header">
         <h2>Inscreva-se</h2>
         <div className="underline"></div>
       </div>
@@ -26,14 +24,20 @@ export default function Formulario() {
         <div className="row">
           <div className="input ">
             <label>Nome</label>
-            <input required placeholder="Digite seu nome completo" aria-label="Nome"/>
+            <input
+              required
+              placeholder="Digite seu nome completo"
+              aria-label="Nome"
+            />
           </div>
           <div className="input ">
             <label>Curso</label>
-            
+
             <select name="courses" id="courses">
               <option value="0">Selecione o curso concluído</option>
-              { cursos.map((item) =>  <option value={item.Nome}>{item.Nome}</option> ) }
+              {cursos.map((item) => (
+                <option value={item.Nome}>{item.Nome}</option>
+              ))}
             </select>
           </div>
         </div>
@@ -50,13 +54,17 @@ export default function Formulario() {
           </div>
           <div id="telefone" className="input ">
             <label>Telefone</label>
-            <input type="number" placeholder="Digite seu telefone" aria-label="Telefone"/>
+            <input
+              type="number"
+              placeholder="Digite seu telefone"
+              aria-label="Telefone"
+            />
           </div>
         </div>
         <div className="row">
-          <div className="input ">
+          <div className="input">
             <label>Observações</label>
-            <input required style={{ minHeight: 85 }} aria-label="Observações"/>
+            <input className="text-area" required aria-label="Observações" />
           </div>
         </div>
 
