@@ -8,8 +8,6 @@ export const Container = styled.div`
 
   padding: 3.75rem 8rem;
 
-<<<<<<< HEAD
-=======
   .none-search {
     font-size: 1.575rem;
     font-family: "Nunito", sans-serif;
@@ -17,7 +15,6 @@ export const Container = styled.div`
     color: #a9a9a9;
   }
 
->>>>>>> 66195253b2cb598aec781368be7e034cdea4c368
   @media (max-width: 768px) {
     padding: 3.75rem 2.5rem;
 
@@ -71,10 +68,6 @@ export const Container = styled.div`
       border: 0.0625rem solid rgba(199, 199, 199, 0.4);
 
       b {
-<<<<<<< HEAD
-        margin-left: 0.625rem;
-=======
->>>>>>> 66195253b2cb598aec781368be7e034cdea4c368
         color: rgba(7, 59, 89, 0.8);
       }
 
