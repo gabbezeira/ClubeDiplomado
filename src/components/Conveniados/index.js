@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchSVG from "../../assets/images/Icons/search.png";
 import { Container } from "./styles";
 import { buscaParceiros } from "../../services/requests/parceiros";
+import { PhoneIcon, MapPinIcon } from '@heroicons/react/24/solid'
 import {isMobile} from 'react-device-detect';
 
 export default function Conveniados() {
@@ -86,8 +87,8 @@ export default function Conveniados() {
                     );
                   })}
                 </div>
-                <div className="td" id="hide">
-                  <div>
+                <div className="td" id="hide" style={{justifyContent: "space-between"}}>
+                  <div style={{width: '80%', marginRight: '1rem'}}>
                     {parceiro.Endereco?.TipoLogradouro +
                       " " +
                       parceiro.Endereco?.Logradouro +
@@ -102,11 +103,12 @@ export default function Conveniados() {
                       ", " +
                       parceiro.Endereco?.UF}
                   </div>
-                </div>
-                <div className="td" id="hide">
-                  <div className="btn-call">
-                    <a href="tel:34996937841">
-                      <button>Ligar</button>
+                  <div>
+                    <a href="tel:34996937841" >
+                      <PhoneIcon width={20} height={20} color={'#034870'} />
+                    </a>
+                    <a href={linkEndereco(parceiro.Endereco?.Latitude, parceiro.Endereco?.Longitude)} target='_blank' style={{marginLeft: "0.5rem"}}>
+                      <MapPinIcon width={20} height={20} color={'#034870'} />
                     </a>
                   </div>
                 </div>
