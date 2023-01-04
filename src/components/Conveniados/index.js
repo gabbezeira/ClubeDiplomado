@@ -4,10 +4,20 @@ import { Container } from "./styles";
 import { buscaParceiros } from "../../services/requests/parceiros";
 import { PhoneIcon, MapPinIcon } from '@heroicons/react/24/solid'
 import {isMobile} from 'react-device-detect';
+import Modal from 'react-modal';
 
 export default function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   const linkEndereco = (latitude, longitude) => {
     return `https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`;
@@ -53,7 +63,7 @@ export default function Conveniados() {
           <div className="table">
             {parceiros.map((parceiro) => (
               isMobile ?
-              <div className="tr" key={parceiro.IdPessoa}>
+              <div className="tr" key={parceiro.IdPessoa} onClick={openModal}>
                 <div className="td">
                   <b>
                     {parceiro.PessoaJuridica?.NomeFantasia
@@ -61,7 +71,18 @@ export default function Conveniados() {
                       : ajustaNome(parceiro.Nome)}
                   </b>
                 </div>
-              </div> :
+                <Modal
+                  isOpen={modalIsOpen}
+                  onRequestClose={closeModal}
+                  // style={customStyles}
+                  contentLabel="Example Modal"
+                >
+                  <h2>Hello</h2>
+                  <button onClick={closeModal}>close</button>
+                  <div>I am a modal</div>
+                </Modal>
+              </div>
+               :
               <div className="tr" key={parceiro.IdPessoa}>
 
                 <div className="td">
