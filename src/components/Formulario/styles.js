@@ -54,6 +54,7 @@ export const DialogClose = styled(Close)`
   width: 7.5rem;
   margin: 0 auto;
   border: none;
+  outline: none;
   border-radius: 0.25rem;
   margin-top: 0.5rem;
   float: right;
@@ -106,6 +107,7 @@ export const Container = styled.div`
       width: 7.5rem;
       margin: 0 auto;
       border: none;
+      outline: none;
       border-radius: 0.25rem;
       transition: 0.8s all;
 

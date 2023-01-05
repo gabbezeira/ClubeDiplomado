@@ -18,6 +18,7 @@ export const DialogClose = styled(Close)`
   border: none;
   border-radius: 0.25rem;
   color: #fff;
+  outline: none;
   text-align: center;
   transition: 0.8s all;
   font-family: "opens sans", sans-serif;
