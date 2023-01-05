@@ -1,18 +1,41 @@
 import React, { useState, useEffect } from "react";
 import SearchSVG from "../../assets/images/Icons/search.png";
-import { Container } from "./styles";
+import {
+  Container,
+  DialogFooter,
+  DialogClose,
+  DialogTitleMobile,
+} from "./styles";
 import { buscaParceiros } from "../../services/requests/parceiros";
 import { PhoneIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { isMobile } from "react-device-detect";
-import Modal from "react-modal";
+import {
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "../Formulario/styles";
+import * as Dialog from "@radix-ui/react-dialog";
 
 export default function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalBenefit, setModalBenefit] = useState([]);
+  const [modalAddress, setModalAddress] = useState("");
+
+  function openModal(parceiro) {
     setIsOpen(true);
+
+    setModalTitle(
+      parceiro.PessoaJuridica?.NomeFantasia
+        ? ajustaNome(parceiro.PessoaJuridica?.NomeFantasia)
+        : ajustaNome(parceiro.Nome)
+    );
+    setModalBenefit(parceiro.Contratos);
+    setModalAddress(parceiro.Endereco);
   }
 
   function closeModal() {
@@ -58,12 +81,89 @@ export default function Conveniados() {
         />
       </div>
 
+      <Dialog.Root open={modalIsOpen} onOpenChange={setIsOpen}>
+        <Dialog.Portal>
+          <DialogOverlay>
+            <DialogContent>
+              <DialogTitleMobile>{modalTitle}</DialogTitleMobile>
+              <DialogDescription>
+                {modalBenefit.map((c) => {
+                  return (
+                    <div key={c.IdContrato}>
+                      {c.Observacao && (
+                        <p>
+                          {c.Observacao} <br />
+                          <br />
+                        </p>
+                      )}
+                      {c.Beneficios.map((b) => {
+                        return (
+                          <p key={b.IdBeneficio}>
+                            <b>Benefício: </b>
+                            {b.PercDesconto > 0
+                              ? b.PercDesconto + "%"
+                              : b.ValorDesconto + " reais"}{" "}
+                            {b.Observacao}
+                            <br />
+                            <br />
+                            <b className="b-categoria">Categoria:</b>{" "}
+                            {b.BeneficioCategoria}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
+              </DialogDescription>
+              <DialogDescription>
+                {modalAddress.TipoLogradouro +
+                  " " +
+                  modalAddress?.Logradouro +
+                  " " +
+                  modalAddress?.Numero +
+                  ", " +
+                  modalAddress?.Complemento +
+                  " " +
+                  modalAddress?.Bairro +
+                  " " +
+                  modalAddress?.Cidade +
+                  ", " +
+                  modalAddress?.UF}
+              </DialogDescription>
+              <DialogFooter>
+                <div className="mobileModalIcons">
+                  <a>
+                    <PhoneIcon width={20} height={20} color={"#034870"} />
+                  </a>
+                  <a
+                    href={linkEndereco(
+                      modalAddress?.Latitude,
+                      modalAddress?.Longitude
+                    )}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{ marginLeft: "0.5rem" }}
+                  >
+                    <MapPinIcon width={20} height={20} color={"#034870"} />
+                  </a>
+                </div>
+                <DialogClose>Fechar</DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          </DialogOverlay>
+        </Dialog.Portal>
+      </Dialog.Root>
+
       {parceiros.length >= 1 ? (
         <div className="overflow">
           <div className="table">
             {parceiros.map((parceiro) =>
               isMobile ? (
-                <div className="tr" key={parceiro.IdPessoa} onClick={openModal}>
+                <div
+                  className="tr"
+                  key={parceiro.IdPessoa}
+                  onClick={() => openModal(parceiro)}
+                >
                   <div className="td">
                     <b>
                       {parceiro.PessoaJuridica?.NomeFantasia
@@ -71,16 +171,6 @@ export default function Conveniados() {
                         : ajustaNome(parceiro.Nome)}
                     </b>
                   </div>
-                  <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    // style={customStyles}
-                    contentLabel="Example Modal"
-                  >
-                    <h2>Hello</h2>
-                    <button onClick={closeModal}>close</button>
-                    <div>I am a modal</div>
-                  </Modal>
                 </div>
               ) : (
                 <div className="tr" key={parceiro.IdPessoa}>

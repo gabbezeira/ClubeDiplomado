@@ -6,7 +6,7 @@ export const NavContainer = styled.div`
   z-index: 100;
   width: 100%;
   height: auto;
-  padding: 0.625rem 8rem;
+  padding: 0rem 8rem;
   background-color: #073b59;
 
   .logo {
@@ -14,6 +14,8 @@ export const NavContainer = styled.div`
       height: auto;
       width: 8rem;
       filter: brightness(100);
+      margin: 0;
+      padding: 0;
     }
   }
 `;
