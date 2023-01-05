@@ -59,7 +59,7 @@ export const DialogClose = styled(Close)`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.button};
-    opacity: 0.8;
+    opacity: 0.9;
   }
 `;
 
@@ -109,7 +109,7 @@ export const Container = styled.div`
 
       &:hover {
         background-color: ${({ theme }) => theme.colors.button};
-        opacity: 0.8;
+        opacity: 0.9;
       }
     }
 
