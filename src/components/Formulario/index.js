@@ -37,7 +37,15 @@ export default function Formulario() {
       setDialogTitle('Ops... Houve uma falha ao tentar enviar a solicitação');
       setDialogDescription('Tente novamente mais tarde')
     }
-    }
+    setAluno({
+      Nome: '',
+      Email: '',
+      Curso: '',
+      Telefone: '',
+      Observacoes: '',
+    });
+    event.target.reset();
+  }
 
   useEffect(() => {
     const carregaCursos = async () => {
