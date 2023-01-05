@@ -139,7 +139,10 @@ export default function Conveniados() {
                     <a href="tel:34996937841" >
                       <PhoneIcon width={20} height={20} color={'#034870'} />
                     </a>
-                    <a href={linkEndereco(parceiro.Endereco?.Latitude, parceiro.Endereco?.Longitude)} target='_blank' style={{marginLeft: "0.5rem"}}>
+                    <a href={linkEndereco(parceiro.Endereco?.Latitude, parceiro.Endereco?.Longitude)} 
+                      target='_blank'
+                      rel="noreferrer" 
+                      style={{marginLeft: "0.5rem"}}>
                       <MapPinIcon width={20} height={20} color={'#034870'} />
                     </a>
                   </div>
