@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 import Formulario from "./components/Formulario";
 import { isMobile } from "react-device-detect";
 import { slide as Menu } from "react-burger-menu";
-import BurgerIcon from "./assets/images/burger-menu-icon.png";
+import BurgerIcon from "./assets/images/burguer-menu-icon.svg";
 
 function App() {
   return (
@@ -48,7 +48,11 @@ function App() {
             <div id="outer-container">
               <Menu
                 customBurgerIcon={
-                  <img src={BurgerIcon} alt="Menu para dispositivos mobile" />
+                  <img
+                    className="menu-burguer"
+                    src={BurgerIcon}
+                    alt="Menu para dispositivos mobile"
+                  />
                 }
               >
                 <Link to="#vantagens" smooth>
