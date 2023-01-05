@@ -1,4 +1,67 @@
 import styled from "styled-components";
+import {
+  Overlay,
+  Content,
+  Title,
+  Description,
+  Close,
+} from "@radix-ui/react-dialog";
+
+export const DialogOverlay = styled(Overlay)`
+  background: rgba(0 0 0 / 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+`;
+
+export const DialogContent = styled(Content)`
+  height: auto;
+  min-width: 300px;
+  background: white;
+  padding: 1.875rem;
+  border: 0.0625rem solid rgba(199, 199, 199, 0.3) !important;
+  border-radius: 0.25rem;
+`;
+
+export const DialogTitle = styled(Title)`
+  font-family: "open sans", sans-serif;
+  font-size: 1.875rem;
+  margin-bottom: 0.75rem;
+  color: #2c3131;
+  font-weight: bold;
+`;
+
+export const DialogDescription = styled(Description)`
+  font-family: "open sans", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: ${({ theme }) => theme.colors.textLight};
+`;
+
+export const DialogClose = styled(Close)`
+  background-color: ${({ theme }) => theme.colors.button};
+  padding: 1rem 0;
+  height: auto;
+  width: 7.5rem;
+  margin: 0 auto;
+  border: none;
+  border-radius: 0.25rem;
+  margin-top: 0.5rem;
+  float: right;
+  color: #fff;
+
+  transition: 0.8s all;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.button};
+    opacity: 0.8;
+  }
+`;
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -42,6 +105,12 @@ export const Container = styled.div`
       margin: 0 auto;
       border: none;
       border-radius: 0.25rem;
+      transition: 0.8s all;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.button};
+        opacity: 0.8;
+      }
     }
 
     .row {
@@ -86,33 +155,6 @@ export const Container = styled.div`
         ::placeholder {
           color: #a9a9a9;
         }
-      }
-    }
-  }
-
-  .DialogOverlay {
-    background: rgba(0 0 0 / 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: grid;
-    place-items: center;
-    overflow-y: auto;
-
-    .DialogContent {
-      height: 125px;
-      min-width: 300px;
-      background: white;
-      padding: 30px;
-      border: 1px solid rgba(199, 199, 199, 0.4) !important;
-      border-radius: 4px;
-
-      .DialogTitles {
-        font-size: 2rem;
-        color: #2c3131;
-        font-weight: bold;
       }
     }
   }

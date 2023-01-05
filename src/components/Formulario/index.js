@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { buscaCursos } from "../../services/requests/cursos";
 import { inscreverAluno } from "../../services/requests/inscricoes";
-import { Container } from "./styles";
+import {
+  Container,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "./styles";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export default function Formulario() {
@@ -141,15 +148,13 @@ export default function Formulario() {
         onOpenChange={setConfirmacaoCadastro}
       >
         <Dialog.Portal>
-          <Dialog.Overlay className="DialogOverlay">
-            <Dialog.Content className="DialogContent">
-              <Dialog.Title className="DialogTitle">{dialogTitle}</Dialog.Title>
-              <Dialog.Description className="DialogDescription">
-                {dialogDescription}
-              </Dialog.Description>
-              <Dialog.Close />
-            </Dialog.Content>
-          </Dialog.Overlay>
+          <DialogOverlay>
+            <DialogContent>
+              <DialogTitle>{dialogTitle}</DialogTitle>
+              <DialogDescription>{dialogDescription}</DialogDescription>
+              <DialogClose>Fechar</DialogClose>
+            </DialogContent>
+          </DialogOverlay>
         </Dialog.Portal>
       </Dialog.Root>
     </Container>
