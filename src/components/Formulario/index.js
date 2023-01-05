@@ -133,7 +133,7 @@ export default function Formulario() {
             <label>Observações</label>
             <input
               name="Observacoes"
-              style={{ minHeight: 85 }}
+              className="text-area"
               aria-label="Observações"
               value={aluno.Observacoes}
               onChange={inputsHandler}

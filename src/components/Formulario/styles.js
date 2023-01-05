@@ -28,7 +28,7 @@ export const DialogContent = styled(Content)`
   border-radius: 0.25rem;
 
   @media (max-width: 768px) {
-    max-width: 250px;
+    margin: 1.25rem;
   }
 `;
 
@@ -74,14 +74,14 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   min-height: 600px;
-  padding: 3.75rem 8rem;
+  padding: 5.75rem 8rem;
 
   .header {
     font-size: 1.875rem;
     font-family: "nunito", sans-serif;
     font-weight: bold;
     color: #404040;
-    margin: 3.5rem 0;
+    margin-bottom: 3.5rem;
 
     .underline {
       background-color: ${({ theme }) => theme.colors.primary};
@@ -94,9 +94,7 @@ export const Container = styled.div`
   .form {
     display: flex;
     flex-direction: column;
-
     font-family: "open sans", sans-serif;
-
     width: 100%;
 
     button {
@@ -120,9 +118,7 @@ export const Container = styled.div`
     .row {
       display: flex;
       gap: 2.5rem;
-
       width: 100%;
-
       margin-bottom: 1.5625rem;
 
       label {
@@ -135,7 +131,7 @@ export const Container = styled.div`
         flex: 1;
 
         .text-area {
-          min-height: 6.5rem;
+          min-height: 8.5rem;
         }
       }
 

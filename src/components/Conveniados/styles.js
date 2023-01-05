@@ -5,8 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding: 3.75rem 8rem;
+  padding: 5.75rem 8rem;
 
   .none-search {
     font-size: 1.575rem;
@@ -101,7 +100,7 @@ export const Container = styled.div`
     font-family: "nunito", sans-serif;
     font-weight: bold;
     color: #404040;
-    margin: 3.5rem 0;
+    margin-bottom: 3.5rem;
 
     .underline {
       background-color: ${({ theme }) => theme.colors.primary};
