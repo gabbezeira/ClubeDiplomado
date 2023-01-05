@@ -26,6 +26,10 @@ export const DialogContent = styled(Content)`
   padding: 1.875rem;
   border: 0.0625rem solid rgba(199, 199, 199, 0.3) !important;
   border-radius: 0.25rem;
+
+  @media (max-width: 768px) {
+    max-width: 250px;
+  }
 `;
 
 export const DialogTitle = styled(Title)`
