@@ -20,8 +20,8 @@ function App() {
         {!isMobile ? (
           <NavContainer>
             <Content>
-              <Link to="#slider" smooth>
-                <img className="logo" src={Logo} alt="Logo Clube Diplomado" />
+              <Link className="logo" to="#slider" smooth>
+                <img src={Logo} alt="Logo Clube Diplomado" />
               </Link>
               <ul className="list">
                 <li>
@@ -42,8 +42,8 @@ function App() {
           </NavContainer>
         ) : (
           <NavContainerMobile>
-            <Link to="#slider" smooth>
-              <img className="logo" src={Logo} alt="Logo Clube Diplomado" />
+            <Link className="logo" to="#slider" smooth>
+              <img src={Logo} alt="Logo Clube Diplomado" />
             </Link>
             <div id="outer-container">
               <Menu

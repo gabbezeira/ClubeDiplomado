@@ -8,6 +8,14 @@ export const NavContainer = styled.div`
   height: auto;
   padding: 0.625rem 8rem;
   background-color: #073b59;
+
+  .logo {
+    img {
+      height: auto;
+      width: 8rem;
+      filter: brightness(100);
+    }
+  }
 `;
 export const NavContainerMobile = styled.div`
   top: 0;
@@ -20,6 +28,12 @@ export const NavContainerMobile = styled.div`
 
   .logo {
     padding: 0.625rem 1rem;
+
+    img {
+      height: auto;
+      width: 8rem;
+      filter: brightness(100);
+    }
   }
 
   .menu-burguer {
