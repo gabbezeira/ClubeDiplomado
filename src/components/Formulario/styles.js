@@ -34,17 +34,12 @@ export const Container = styled.div`
 
     button {
       background-color: ${({ theme }) => theme.colors.button};
-
       font-family: "open sans", sans-serif;
       font-size: 1.25rem;
       color: white;
-
       padding: 1rem 0;
-
       width: 7.5rem;
-
       margin: 0 auto;
-
       border: none;
       border-radius: 0.25rem;
     }
@@ -91,6 +86,33 @@ export const Container = styled.div`
         ::placeholder {
           color: #a9a9a9;
         }
+      }
+    }
+  }
+
+  .DialogOverlay {
+    background: rgba(0 0 0 / 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+
+    .DialogContent {
+      height: 125px;
+      min-width: 300px;
+      background: white;
+      padding: 30px;
+      border: 1px solid rgba(199, 199, 199, 0.4) !important;
+      border-radius: 4px;
+
+      .DialogTitles {
+        font-size: 2rem;
+        color: #2c3131;
+        font-weight: bold;
       }
     }
   }
