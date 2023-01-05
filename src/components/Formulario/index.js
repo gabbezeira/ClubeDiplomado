@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { buscaCursos } from "../../services/requests/cursos";
 import { inscreverAluno } from "../../services/requests/inscricoes";
 import { Container } from "./styles";
+import './style.css';
+import * as Dialog from '@radix-ui/react-dialog';
 
 export default function Formulario() {
   const [cursos, setCursos] = useState([]);
-  const [msg, setMsg] = useState('');
+  const [dialogTitle, setDialogTitle] = useState('');
+  const [dialogDescription, setDialogDescription] = useState('');
+  const [confirmacaoCadastro, setConfirmacaoCadastro] = useState(false);
 
   const [aluno, setAluno] = useState({
     Nome: '',
@@ -24,11 +28,16 @@ export default function Formulario() {
 
     event.preventDefault();
     const response = await inscreverAluno(aluno);
-    setMsg(response?.Result);
-      setTimeout(() => {
-        setMsg('')
-      }, 5000);
-  }
+
+    if( response.StatusCode === 200 ) {
+      setDialogTitle('Solicitação efetuada com sucesso!');
+      setDialogDescription('Obrigado! Seus dados foram enviados com sucesso! Em breve, entraremos em contato.')
+      setConfirmacaoCadastro(true);
+    } else {
+      setDialogTitle('Ops... Houve uma falha ao tentar enviar a solicitação');
+      setDialogDescription('Tente novamente mais tarde')
+    }
+    }
 
   useEffect(() => {
     const carregaCursos = async () => {
@@ -59,17 +68,13 @@ export default function Formulario() {
           <div className="input ">
             <label>Curso</label>
 
-            <select 
-                name="Curso" 
-                id="courses"  
-                required>
+            <select name="Curso" id="courses" value={aluno.Curso} onChange={inputsHandler} required>
               <option value="">Selecione o curso concluído</option>
               {cursos.map((item) => 
                 <option key={item.IdCurso} value={item.Nome}>{item.Nome}</option>
               )}
             </select>
           </div>
-          {msg !== '' && msg}
         </div>
 
         <div className="row">
@@ -111,6 +116,19 @@ export default function Formulario() {
 
         <button type="submit">Enviar</button>
       </form>
+      <Dialog.Root open={confirmacaoCadastro} onOpenChange={setConfirmacaoCadastro}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="DialogOverlay">
+            <Dialog.Content className="DialogContent">
+              <Dialog.Title>{dialogTitle}</Dialog.Title>
+              <Dialog.Description>
+                {dialogDescription}
+              </Dialog.Description>
+              <Dialog.Close />
+            </Dialog.Content>
+          </Dialog.Overlay>
+        </Dialog.Portal>
+      </Dialog.Root>
     </Container>
   );
 }
