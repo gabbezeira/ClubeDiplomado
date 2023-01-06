@@ -11,7 +11,7 @@ import {
 } from "./styles";
 import * as Dialog from "@radix-ui/react-dialog";
 
-export default function Formulario() {
+export function Formulario() {
   const [cursos, setCursos] = useState([]);
   const [dialogTitle, setDialogTitle] = useState("");
   const [dialogDescription, setDialogDescription] = useState("");

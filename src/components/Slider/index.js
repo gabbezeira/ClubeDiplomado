@@ -9,7 +9,8 @@ import "swiper/css/navigation";
 import { Image } from "./styles";
 import { Pagination, Navigation } from "swiper";
 
-export default function Slider() {
+export function Slider() {
+
   return (
     <div id="slider">
       <Swiper

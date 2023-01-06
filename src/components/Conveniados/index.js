@@ -17,7 +17,7 @@ import {
 } from "../Formulario/styles";
 import * as Dialog from "@radix-ui/react-dialog";
 
-export default function Conveniados() {
+export function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
