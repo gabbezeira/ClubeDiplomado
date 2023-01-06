@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import { buscaParceiros } from "../../services/requests/parceiros";
 import {isMobile} from 'react-device-detect';
 
-export default function Conveniados() {
+export function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
 

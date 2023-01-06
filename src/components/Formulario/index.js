@@ -3,7 +3,7 @@ import { buscaCursos } from "../../services/requests/cursos";
 import { inscreverAluno } from "../../services/requests/inscricoes";
 import { Container } from "./styles";
 
-export default function Formulario() {
+export function Formulario() {
   const [cursos, setCursos] = useState([]);
   const [msg, setMsg] = useState('');
 

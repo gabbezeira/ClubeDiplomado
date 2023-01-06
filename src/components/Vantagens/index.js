@@ -3,7 +3,7 @@ import Armchair from "../../assets/images/armchair.webp";
 import { HashLink as Link } from "react-router-hash-link";
 import { Content } from "./styles";
 
-export default function Vantagens() {
+export function Vantagens() {
   return (
     <Container id="vantagens">
       <Content>

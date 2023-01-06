@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 import { HashLink as Link } from "react-router-hash-link";
 
-export default function Solicitar() {
+export function Solicitar() {
   return (
     <Container>
       <div className="text-solicitar">

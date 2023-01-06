@@ -1,7 +1,7 @@
 import { Container } from './styles';
 import LogoFooter from '../../assets/images/logofooter.png';
 
-export default function Footer() {
+export function Footer() {
     return (
         <Container>
             <div className="logoFooter">

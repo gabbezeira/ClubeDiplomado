@@ -2,16 +2,19 @@ import { BrowserRouter } from "react-router-dom";
 import { NavContainer, NavContainerMobile, Content } from "./styles/menu";
 import Logo from "./assets/images/logo.webp";
 import { HashLink as Link } from "react-router-hash-link";
-import Slider from "./components/Slider";
-import Card from "./components/Card";
-import Vantagens from "./components/Vantagens";
-import Conveniados from "./components/Conveniados";
-import Solicitar from "./components/Solicitar";
-import Footer from "./components/Footer";
-import Formulario from "./components/Formulario";
 import { isMobile } from "react-device-detect";
 import { slide as Menu } from "react-burger-menu";
 import BurgerIcon from "./assets/images/burger-menu-icon.png";
+import {
+  Vantagens, 
+  Conveniados, 
+  Solicitar, 
+  Formulario, 
+  Footer, 
+  PoliticaPrivacidade,
+  Slider, 
+} from "./components";
+import { Card } from "react-bootstrap";
 
 function App() {
   return (
@@ -71,6 +74,7 @@ function App() {
         <Solicitar />
         <Formulario />
         <Footer />
+        <PoliticaPrivacidade saveCookiesOneDay />
       </div>
     </BrowserRouter>
   );
