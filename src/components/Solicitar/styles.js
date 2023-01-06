@@ -42,7 +42,7 @@ export const Container = styled.div`
       padding: 1.25rem 4.5rem;
       font-family: "Open Sans", sans-serif;
       color: #fff;
-      font-size: 17px;
+      font-size: 1rem;
       font-weight: 600;
     }
   }
