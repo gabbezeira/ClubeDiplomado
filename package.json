@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@heroicons/react": "^2.0.13",
+    "@radix-ui/react-dialog": "^1.0.2",
     "@stitches/react": "^1.2.8",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -14,6 +16,7 @@
     "react-burger-menu": "^3.0.8",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.6.1",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "^5.0.1",

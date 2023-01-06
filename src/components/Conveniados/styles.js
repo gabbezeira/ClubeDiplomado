@@ -1,12 +1,47 @@
 import styled from "styled-components";
+import { Title, Close } from "@radix-ui/react-dialog";
+
+export const DialogFooter = styled.div`
+  margin-top: 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const DialogClose = styled(Close)`
+  background-color: ${({ theme }) => theme.colors.button};
+  padding: 1rem 0;
+  height: auto;
+  width: 7.5rem;
+  margin: 0;
+  border: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  text-align: center;
+  transition: 0.8s all;
+  font-family: "opens sans", sans-serif;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.button};
+    opacity: 0.9;
+  }
+`;
+
+export const DialogTitleMobile = styled(Title)`
+  font-family: "open sans", sans-serif;
+  font-size: 1.875rem;
+  margin-bottom: 2.5rem;
+  color: #2c3131;
+  font-weight: bold;
+`;
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  padding: 3.75rem 8rem;
+  padding: 5.75rem 8rem;
 
   .none-search {
     font-size: 1.575rem;
@@ -101,7 +136,7 @@ export const Container = styled.div`
     font-family: "nunito", sans-serif;
     font-weight: bold;
     color: #404040;
-    margin: 3.5rem 0;
+    margin-bottom: 3.5rem;
 
     .underline {
       background-color: ${({ theme }) => theme.colors.primary};

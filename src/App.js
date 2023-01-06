@@ -4,7 +4,7 @@ import Logo from "./assets/images/logo.webp";
 import { HashLink as Link } from "react-router-hash-link";
 import { isMobile } from "react-device-detect";
 import { slide as Menu } from "react-burger-menu";
-import BurgerIcon from "./assets/images/burger-menu-icon.png";
+import BurgerIcon from "./assets/images/burguer-menu-icon.svg";
 import {
   Vantagens, 
   Conveniados, 
@@ -23,8 +23,8 @@ function App() {
         {!isMobile ? (
           <NavContainer>
             <Content>
-              <Link to="#slider" smooth>
-                <img className="logo" src={Logo} alt="Logo Clube Diplomado" />
+              <Link className="logo" to="#slider" smooth>
+                <img src={Logo} alt="Logo Clube Diplomado" />
               </Link>
               <ul className="list">
                 <li>
@@ -45,13 +45,17 @@ function App() {
           </NavContainer>
         ) : (
           <NavContainerMobile>
-            <Link to="#slider" smooth>
-              <img className="logo" src={Logo} alt="Logo Clube Diplomado" />
+            <Link className="logo" to="#slider" smooth>
+              <img src={Logo} alt="Logo Clube Diplomado" />
             </Link>
             <div id="outer-container">
               <Menu
                 customBurgerIcon={
-                  <img src={BurgerIcon} alt="Menu para dispositivos mobile" />
+                  <img
+                    className="menu-burguer"
+                    src={BurgerIcon}
+                    alt="Menu para dispositivos mobile"
+                  />
                 }
               >
                 <Link to="#vantagens" smooth>

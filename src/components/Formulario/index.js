@@ -1,34 +1,58 @@
 import { useState, useEffect } from "react";
 import { buscaCursos } from "../../services/requests/cursos";
 import { inscreverAluno } from "../../services/requests/inscricoes";
-import { Container } from "./styles";
+import {
+  Container,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "./styles";
+import * as Dialog from "@radix-ui/react-dialog";
 
 export function Formulario() {
   const [cursos, setCursos] = useState([]);
-  const [msg, setMsg] = useState('');
+  const [dialogTitle, setDialogTitle] = useState("");
+  const [dialogDescription, setDialogDescription] = useState("");
+  const [confirmacaoCadastro, setConfirmacaoCadastro] = useState(false);
 
   const [aluno, setAluno] = useState({
-    Nome: '',
-    Email: '',
-    Curso: '',
-    Telefone: '',
-    Observacoes: '',
+    Nome: "",
+    Email: "",
+    Curso: "",
+    Telefone: "",
+    Observacoes: "",
   });
 
-  const inputsHandler = (e) =>{
-    const {name, value} = e.target;
-    setAluno( {...aluno, [name]: value} )
-}
+  const inputsHandler = (e) => {
+    const { name, value } = e.target;
+    setAluno({ ...aluno, [name]: value });
+  };
 
   const inscrever = async (event) => {
-
     event.preventDefault();
     const response = await inscreverAluno(aluno);
-    setMsg(response?.Result);
-      setTimeout(() => {
-        setMsg('')
-      }, 5000);
-  }
+
+    if (response.StatusCode === 200) {
+      setDialogTitle("Solicitação efetuada com sucesso!");
+      setDialogDescription(
+        "Obrigado! Seus dados foram enviados com sucesso! Em breve, entraremos em contato."
+      );
+      setConfirmacaoCadastro(true);
+    } else {
+      setDialogTitle("Ops... Houve uma falha ao tentar enviar a solicitação");
+      setDialogDescription("Tente novamente mais tarde");
+    }
+    setAluno({
+      Nome: "",
+      Email: "",
+      Curso: "",
+      Telefone: "",
+      Observacoes: "",
+    });
+    event.target.reset();
+  };
 
   useEffect(() => {
     const carregaCursos = async () => {
@@ -49,27 +73,33 @@ export function Formulario() {
         <div className="row">
           <div className="input ">
             <label>Nome</label>
-            <input placeholder="Digite seu nome completo" 
-                aria-label="Nome"
-                name="Nome"
-                value={aluno.Nome}
-                onChange={inputsHandler}
-                required />
+            <input
+              placeholder="Digite seu nome completo"
+              aria-label="Nome"
+              name="Nome"
+              value={aluno.Nome}
+              onChange={inputsHandler}
+              required
+            />
           </div>
           <div className="input ">
             <label>Curso</label>
 
-            <select 
-                name="Curso" 
-                id="courses"  
-                required>
+            <select
+              name="Curso"
+              id="courses"
+              value={aluno.Curso}
+              onChange={inputsHandler}
+              required
+            >
               <option value="">Selecione o curso concluído</option>
-              {cursos.map((item) => 
-                <option key={item.IdCurso} value={item.Nome}>{item.Nome}</option>
-              )}
+              {cursos.map((item) => (
+                <option key={item.IdCurso} value={item.Nome}>
+                  {item.Nome}
+                </option>
+              ))}
             </select>
           </div>
-          {msg !== '' && msg}
         </div>
 
         <div className="row">
@@ -87,30 +117,46 @@ export function Formulario() {
           </div>
           <div id="telefone" className="input ">
             <label>Telefone</label>
-            <input 
+            <input
               type="number"
               name="Telefone"
-              placeholder="Digite seu telefone" 
+              placeholder="Digite seu telefone"
               aria-label="Telefone"
               value={aluno.Telefone}
-              onChange={inputsHandler} 
-              required/>
+              onChange={inputsHandler}
+              required
+            />
           </div>
         </div>
         <div className="row">
           <div className="input">
             <label>Observações</label>
-            <input  
+            <input
               name="Observacoes"
-              style={{ minHeight: 85 }} 
+              className="text-area"
               aria-label="Observações"
               value={aluno.Observacoes}
-              onChange={inputsHandler} />
+              onChange={inputsHandler}
+            />
           </div>
         </div>
 
         <button type="submit">Enviar</button>
       </form>
+      <Dialog.Root
+        open={confirmacaoCadastro}
+        onOpenChange={setConfirmacaoCadastro}
+      >
+        <Dialog.Portal>
+          <DialogOverlay>
+            <DialogContent>
+              <DialogTitle>{dialogTitle}</DialogTitle>
+              <DialogDescription>{dialogDescription}</DialogDescription>
+              <DialogClose>Fechar</DialogClose>
+            </DialogContent>
+          </DialogOverlay>
+        </Dialog.Portal>
+      </Dialog.Root>
     </Container>
   );
 }

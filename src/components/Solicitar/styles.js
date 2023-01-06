@@ -6,8 +6,7 @@ export const Container = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-
-  padding: 3.75rem 7.9375rem;
+  padding: 3.75rem 8rem;
 
   .text-solicitar {
     width: 80%;
