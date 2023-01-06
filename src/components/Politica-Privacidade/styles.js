@@ -11,6 +11,7 @@ const slideDown = keyframes({
 })
 
 export const WrapperPolitica = styled('div', {
+    zIndex: 1000,
     backgroundColor: '$white',
     marginLeft: '0.9375rem',
     display: 'flex',
