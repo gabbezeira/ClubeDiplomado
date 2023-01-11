@@ -9,18 +9,20 @@ import {
 import { buscaParceiros } from "../../services/requests/parceiros";
 import { PhoneIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { isMobile } from "react-device-detect";
+import { FormularioParceiro } from "../FormularioParceiro";
 import {
   DialogOverlay,
   DialogContent,
-  DialogTitle,
   DialogDescription,
 } from "../Formulario/styles";
+import { DialogContentFormParceiro } from "../FormularioParceiro/styles";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsFormOpen, setIsFormOpen] = useState(false);
 
   const [modalTitle, setModalTitle] = useState("");
   const [modalBenefit, setModalBenefit] = useState([]);
@@ -80,6 +82,16 @@ export function Conveniados() {
           placeholder="Procure por um termo específico. Exemplo: “Academia”"
         />
       </div>
+
+      <Dialog.Root open={modalIsFormOpen} onOpenChange={setIsFormOpen}>
+        <Dialog.Portal>
+          <DialogOverlay style={{ zIndex: 1000 }}>
+            <DialogContentFormParceiro>
+              <FormularioParceiro />
+            </DialogContentFormParceiro>
+          </DialogOverlay>
+        </Dialog.Portal>
+      </Dialog.Root>
 
       <Dialog.Root open={modalIsOpen} onOpenChange={setIsOpen}>
         <Dialog.Portal>
@@ -255,6 +267,8 @@ export function Conveniados() {
           Nenhum parceiro encontrado para o termo buscado
         </p>
       )}
+      <br></br>
+      <p onClick={() => setIsFormOpen(true)}>Quero me tornar um conveniado.</p>
     </Container>
   );
 }

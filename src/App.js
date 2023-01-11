@@ -6,13 +6,13 @@ import { isMobile } from "react-device-detect";
 import { slide as Menu } from "react-burger-menu";
 import BurgerIcon from "./assets/images/burguer-menu-icon.svg";
 import {
-  Vantagens, 
-  Conveniados, 
-  Solicitar, 
-  Formulario, 
-  Footer, 
+  Vantagens,
+  Conveniados,
+  Solicitar,
+  Formulario,
+  Footer,
   PoliticaPrivacidade,
-  Slider, 
+  Slider,
 } from "./components";
 import { Card } from "react-bootstrap";
 
