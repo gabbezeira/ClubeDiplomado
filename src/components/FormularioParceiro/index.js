@@ -55,7 +55,7 @@ export function FormularioParceiro() {
   return (
     <Container id="formulario">
       <div className="header">
-        <h2>Seja um Parceiro</h2>
+        <h2>Inscreva-se</h2>
         <div className="underline"></div>
       </div>
 
