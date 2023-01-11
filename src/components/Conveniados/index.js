@@ -267,8 +267,11 @@ export function Conveniados() {
           Nenhum parceiro encontrado para o termo buscado
         </p>
       )}
-      <br></br>
-      <p onClick={() => setIsFormOpen(true)}>Quero me tornar um conveniado.</p>
+      <div className="footerTable">
+        <p onClick={() => setIsFormOpen(true)}>
+          Quero me tornar um conveniado.
+        </p>
+      </div>
     </Container>
   );
 }

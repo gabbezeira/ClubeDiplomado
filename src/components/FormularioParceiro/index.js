@@ -55,11 +55,11 @@ export function FormularioParceiro() {
   return (
     <Container id="formulario">
       <div className="header">
-        <h2>Inscreva-se</h2>
+        <h2>Seja um Parceiro</h2>
         <div className="underline"></div>
       </div>
 
-      <form className="form" method="POST" onSubmit={inscrever}>
+      <form className="form" onSubmit={inscrever}>
         <div className="row">
           <div className="input ">
             <label>Nome</label>

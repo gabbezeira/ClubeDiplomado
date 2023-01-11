@@ -2,9 +2,9 @@ import api from "../api";
 
 async function inscreverAluno(aluno) {
   try {
-
     const resultado = await api.post(
-      `/br.edu.unipam.clubediplomado.api/api/v1/Inscricao/InscricaoAluno`, aluno
+      `/br.edu.unipam.clubediplomado.api/api/v1/Inscricao/InscricaoAluno`,
+      aluno
     );
 
     console.log(resultado);
@@ -17,9 +17,9 @@ async function inscreverAluno(aluno) {
 
 async function inscreverParceiro(parceiro) {
   try {
-
-    const resultado = await api.get(
-      `/br.edu.unipam.clubediplomado.api/api/v1/Inscricao/InscricaoParceiro`, parceiro
+    const resultado = await api.post(
+      `/br.edu.unipam.clubediplomado.api/api/v1/Inscricao/InscricaoParceiro`,
+      parceiro
     );
 
     return resultado.data;
