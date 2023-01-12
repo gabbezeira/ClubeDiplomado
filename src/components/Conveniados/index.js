@@ -241,9 +241,13 @@ export function Conveniados() {
                         parceiro.Endereco?.UF}
                     </div>
                     <div>
-                      <a href="tel:34996937841">
-                        <PhoneIcon width={20} height={20} color={"#034870"} />
-                      </a>
+                      { parceiro.Telefones?.map( (t, index) => {
+                        return (
+                          <a key={index} href={`tel:${t.Numero}`} >
+                            <PhoneIcon width={20} height={20} color={"#034870"} />
+                          </a>
+                        )}
+                      )}
                       <a
                         href={linkEndereco(
                           parceiro.Endereco?.Latitude,
