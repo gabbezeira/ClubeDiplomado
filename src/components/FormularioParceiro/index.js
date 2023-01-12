@@ -7,7 +7,9 @@ import {
   DialogTitle,
   DialogDescription,
   DialogClose,
+  DialogCloseX,
 } from "./styles";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export function FormularioParceiro() {
@@ -54,6 +56,9 @@ export function FormularioParceiro() {
 
   return (
     <Container id="formulario">
+      <DialogCloseX asChild>
+        <XMarkIcon />
+      </DialogCloseX>
       <div className="header">
         <h2>Inscreva-se</h2>
         <div className="underline"></div>
@@ -123,7 +128,6 @@ export function FormularioParceiro() {
             />
           </div>
         </div>
-
         <button type="submit">Enviar</button>
       </form>
       <Dialog.Root

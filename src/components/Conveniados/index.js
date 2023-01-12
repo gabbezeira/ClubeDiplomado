@@ -85,7 +85,7 @@ export function Conveniados() {
 
       <Dialog.Root open={modalIsFormOpen} onOpenChange={setIsFormOpen}>
         <Dialog.Portal>
-          <DialogOverlay style={{ zIndex: 1000 }}>
+          <DialogOverlay style={{ zIndex: 200 }}>
             <DialogContentFormParceiro>
               <FormularioParceiro />
             </DialogContentFormParceiro>

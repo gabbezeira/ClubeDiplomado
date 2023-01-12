@@ -21,6 +21,7 @@ export const DialogContentFormParceiro = styled(Content)`
 `;
 
 export const DialogOverlay = styled(Overlay)`
+  z-index: 2;
   background: rgba(0 0 0 / 0.5);
   position: fixed;
   top: 0;
@@ -81,6 +82,32 @@ export const DialogClose = styled(Close)`
   }
 `;
 
+export const DialogCloseX = styled(Close)`
+  position: absolute;
+  margin-left: 40.625rem;
+  margin-top: -1.25rem;
+  background-color: ${({ theme }) => theme.colors.button};
+  height: 1.5625rem;
+  width: 1.5625rem;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.8s all;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.button};
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    position: absolute;
+    margin-left: 350px;
+    margin-top: -50px;
+  }
+`;
+
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   display: flex;
@@ -89,7 +116,6 @@ export const Container = styled.div`
   width: 100%;
   min-height: 400px;
   padding: 2rem 4rem;
-  z-index: 5000;
 
   .header {
     font-size: 1.875rem;
