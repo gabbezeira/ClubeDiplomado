@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { inscreverParceiro } from "../../services/requests/inscricoes";
+import InputMask from 'react-input-mask';
 import {
   Container,
   DialogOverlay,
@@ -79,7 +80,8 @@ export function FormularioParceiro() {
           </div>
           <div className="input ">
             <label>CNPJ</label>
-            <input
+            <InputMask 
+              mask='99.999.999/9999-99'
               placeholder="Digite seu CNPJ"
               aria-label="CNPJ"
               name="CNPJ"
@@ -105,8 +107,8 @@ export function FormularioParceiro() {
           </div>
           <div id="telefone" className="input ">
             <label>Telefone</label>
-            <input
-              type="number"
+            <InputMask 
+              mask='(99) 99999 9999'
               name="Telefone"
               placeholder="Digite seu telefone"
               aria-label="Telefone"
