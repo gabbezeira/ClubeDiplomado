@@ -17,7 +17,9 @@ import {
 import { Card } from "react-bootstrap";
 
 function App() {
+  
   return (
+
     <BrowserRouter>
       <div className="App">
         {!isMobile ? (
@@ -80,7 +82,7 @@ function App() {
         <Footer />
         <PoliticaPrivacidade saveCookiesOneDay />
       </div>
-    </BrowserRouter>
+    </BrowserRouter>    
   );
 }
 

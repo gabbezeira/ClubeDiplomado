@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { setCookie, parseCookies } from "nookies";
+import { useCookies } from 'react-cookie';
 import {
   AStyled,
   ButtonStyled,
@@ -14,23 +14,23 @@ export function PoliticaPrivacidade({
   saveCookiesOneDay,
 }) {
   const [visible, setVisible] = useState(true);
+  const [cookies, setCookie] = useCookies(['cookie-diplomado']);
   const oneDayInSeconds = 86400;
+
   const savedCookies = () => {
-    setCookie(null, "ACCEPTCOOKIE", "accept", {
-      maxAge: saveCookiesOneDay ? oneDayInSeconds : timeSavedCookiesInSeconds,
-      path: "/",
-    });
+    const expires = saveCookiesOneDay ? oneDayInSeconds : timeSavedCookiesInSeconds;
+    setCookie('ACCEPTCOOKIE', 'accept', {path: '/',  maxAge: expires });
     setVisible(false);
   };
 
   useEffect(() => {
-    const cookies = parseCookies();
-    const valueCookies = cookies.ACCEPTCOOKIE;
 
-    if (valueCookies !== undefined) {
+    if (cookies.ACCEPTCOOKIE !== undefined) {
       setVisible(false);
     }
-  }, [visible]);
+
+    console.log(cookies);
+  }, [cookies, visible]);
 
   return (
     <WrapperPolitica visible={visible}>
