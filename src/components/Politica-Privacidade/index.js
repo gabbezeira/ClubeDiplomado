@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 import {
   AStyled,
   ButtonStyled,
@@ -14,17 +14,18 @@ export function PoliticaPrivacidade({
   saveCookiesOneDay,
 }) {
   const [visible, setVisible] = useState(true);
-  const [cookies, setCookie] = useCookies(['cookie-diplomado']);
+  const [cookies, setCookie] = useCookies(["cookie-diplomado"]);
   const oneDayInSeconds = 86400;
 
   const savedCookies = () => {
-    const expires = saveCookiesOneDay ? oneDayInSeconds : timeSavedCookiesInSeconds;
-    setCookie('ACCEPTCOOKIE', 'accept', {path: '/',  maxAge: expires });
+    const expires = saveCookiesOneDay
+      ? oneDayInSeconds
+      : timeSavedCookiesInSeconds;
+    setCookie("ACCEPTCOOKIE", "accept", { path: "/", maxAge: expires });
     setVisible(false);
   };
 
   useEffect(() => {
-
     if (cookies.ACCEPTCOOKIE !== undefined) {
       setVisible(false);
     }
