@@ -83,7 +83,7 @@ export const DialogClose = styled(Close)`
 `;
 
 export const DialogCloseX = styled(Close)`
-  position: absolute;
+  position: fixed;
   margin-left: 650px;
   margin-top: -1.25rem;
   background-color: ${({ theme }) => theme.colors.button};
@@ -102,8 +102,8 @@ export const DialogCloseX = styled(Close)`
   }
 
   @media (max-width: 768px) {
-    margin-left: 350px;
-    margin-top: -50px;
+    margin-left: 21.875rem;
+    margin-top: -3.125rem;
   }
 `;
 
