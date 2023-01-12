@@ -102,7 +102,7 @@ export const DialogCloseX = styled(Close)`
   }
 
   @media (max-width: 768px) {
-    margin-left: 18gi75rem;
+    margin-left: 18.75rem;
     margin-top: -3.125rem;
   }
 `;
