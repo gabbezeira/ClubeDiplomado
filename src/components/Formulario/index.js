@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { buscaCursos } from "../../services/requests/cursos";
 import { inscreverAluno } from "../../services/requests/inscricoes";
+import InputMask from "react-input-mask";
 import {
   Container,
   DialogOverlay,
@@ -117,8 +118,8 @@ export function Formulario() {
           </div>
           <div id="telefone" className="input ">
             <label>Telefone</label>
-            <input
-              type="number"
+            <InputMask
+              mask="(99) 99999 9999"
               name="Telefone"
               placeholder="Digite seu telefone"
               aria-label="Telefone"

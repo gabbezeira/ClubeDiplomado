@@ -79,7 +79,6 @@ export const ButtonStyled = styled("button", {
   padding: "1rem 0",
   width: "7.5rem",
   margin: "0 auto",
-  border: "none",
   borderRadius: "0.25rem",
   outline: "none",
   marginTop: "0.625rem",

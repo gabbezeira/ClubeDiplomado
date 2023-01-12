@@ -27,6 +27,7 @@ export function Conveniados() {
   const [modalTitle, setModalTitle] = useState("");
   const [modalBenefit, setModalBenefit] = useState([]);
   const [modalAddress, setModalAddress] = useState("");
+  const [modalTelefone, setModalTelefone] = useState("");
 
   function openModal(parceiro) {
     setIsOpen(true);
@@ -38,10 +39,7 @@ export function Conveniados() {
     );
     setModalBenefit(parceiro.Contratos);
     setModalAddress(parceiro.Endereco);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
+    setModalTelefone(parceiro.Telefones);
   }
 
   const linkEndereco = (latitude, longitude) => {
@@ -144,7 +142,7 @@ export function Conveniados() {
               </DialogDescription>
               <DialogFooter>
                 <div className="mobileModalIcons">
-                  <a>
+                  <a href={`tel:${modalTelefone[0]?.Numero}`}>
                     <PhoneIcon width={20} height={20} color={"#034870"} />
                   </a>
                   <a
@@ -248,7 +246,7 @@ export function Conveniados() {
                           </a>
                         )}
                       )} */}
-                      <a href={`tel:${parceiro.Telefones[0]?.Numero}`} >
+                      <a href={`tel:${parceiro.Telefones[0]?.Numero}`}>
                         <PhoneIcon width={20} height={20} color={"#034870"} />
                       </a>
                       <a
