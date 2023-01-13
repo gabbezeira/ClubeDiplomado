@@ -9,22 +9,25 @@ import {
 import { buscaParceiros } from "../../services/requests/parceiros";
 import { PhoneIcon, MapPinIcon } from "@heroicons/react/24/solid";
 import { isMobile } from "react-device-detect";
+import { FormularioParceiro } from "../FormularioParceiro";
 import {
   DialogOverlay,
   DialogContent,
-  DialogTitle,
   DialogDescription,
 } from "../Formulario/styles";
+import { DialogContentFormParceiro } from "../FormularioParceiro/styles";
 import * as Dialog from "@radix-ui/react-dialog";
 
 export function Conveniados() {
   const [parceiros, setParceiros] = useState([]);
   const [filtroBusca, setFiltroBusca] = useState("");
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsFormOpen, setIsFormOpen] = useState(false);
 
   const [modalTitle, setModalTitle] = useState("");
   const [modalBenefit, setModalBenefit] = useState([]);
   const [modalAddress, setModalAddress] = useState("");
+  const [modalTelefone, setModalTelefone] = useState("");
 
   function openModal(parceiro) {
     setIsOpen(true);
@@ -36,10 +39,7 @@ export function Conveniados() {
     );
     setModalBenefit(parceiro.Contratos);
     setModalAddress(parceiro.Endereco);
-  }
-
-  function closeModal() {
-    setIsOpen(false);
+    setModalTelefone(parceiro.Telefones);
   }
 
   const linkEndereco = (latitude, longitude) => {
@@ -80,6 +80,16 @@ export function Conveniados() {
           placeholder="Procure por um termo específico. Exemplo: “Academia”"
         />
       </div>
+
+      <Dialog.Root open={modalIsFormOpen} onOpenChange={setIsFormOpen}>
+        <Dialog.Portal>
+          <DialogOverlay style={{ zIndex: 200 }}>
+            <DialogContentFormParceiro>
+              <FormularioParceiro />
+            </DialogContentFormParceiro>
+          </DialogOverlay>
+        </Dialog.Portal>
+      </Dialog.Root>
 
       <Dialog.Root open={modalIsOpen} onOpenChange={setIsOpen}>
         <Dialog.Portal>
@@ -132,7 +142,7 @@ export function Conveniados() {
               </DialogDescription>
               <DialogFooter>
                 <div className="mobileModalIcons">
-                  <a>
+                  <a href={`tel:${modalTelefone[0]?.Numero}`}>
                     <PhoneIcon width={20} height={20} color={"#034870"} />
                   </a>
                   <a
@@ -229,7 +239,14 @@ export function Conveniados() {
                         parceiro.Endereco?.UF}
                     </div>
                     <div>
-                      <a href="tel:34996937841">
+                      {/* { parceiro.Telefones?.map( (t, index) => {
+                        return (
+                          <a key={index} href={`tel:${t.Numero}`} >
+                            <PhoneIcon width={20} height={20} color={"#034870"} />
+                          </a>
+                        )}
+                      )} */}
+                      <a href={`tel:${parceiro.Telefones[0]?.Numero}`}>
                         <PhoneIcon width={20} height={20} color={"#034870"} />
                       </a>
                       <a
@@ -255,6 +272,11 @@ export function Conveniados() {
           Nenhum parceiro encontrado para o termo buscado
         </p>
       )}
+      <div className="footerTable">
+        <p onClick={() => setIsFormOpen(true)}>
+          Quero me tornar um conveniado.
+        </p>
+      </div>
     </Container>
   );
 }

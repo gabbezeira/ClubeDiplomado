@@ -6,18 +6,20 @@ import { isMobile } from "react-device-detect";
 import { slide as Menu } from "react-burger-menu";
 import BurgerIcon from "./assets/images/burguer-menu-icon.svg";
 import {
-  Vantagens, 
-  Conveniados, 
-  Solicitar, 
-  Formulario, 
-  Footer, 
+  Vantagens,
+  Conveniados,
+  Solicitar,
+  Formulario,
+  Footer,
   PoliticaPrivacidade,
-  Slider, 
+  Slider,
 } from "./components";
 import { Card } from "react-bootstrap";
 
 function App() {
+  
   return (
+
     <BrowserRouter>
       <div className="App">
         {!isMobile ? (
@@ -80,7 +82,7 @@ function App() {
         <Footer />
         <PoliticaPrivacidade saveCookiesOneDay />
       </div>
-    </BrowserRouter>
+    </BrowserRouter>    
   );
 }
 

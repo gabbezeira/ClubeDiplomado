@@ -18,6 +18,7 @@ export const DialogClose = styled(Close)`
   border: none;
   border-radius: 0.25rem;
   color: #fff;
+  outline: none;
   text-align: center;
   transition: 0.8s all;
   font-family: "opens sans", sans-serif;
@@ -174,6 +175,29 @@ export const Container = styled.div`
 
       ::placeholder {
         color: #c7c7c7;
+      }
+    }
+  }
+
+  .footerTable {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+
+    p {
+      font-family: "Open sans", sans-serif;
+      font-size: 0.9375rem;
+      color: ${({ theme }) => theme.colors.primary};
+      opacity: 0.6;
+      text-decoration: none;
+      transition: all 0.6s;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+        opacity: 1;
       }
     }
   }

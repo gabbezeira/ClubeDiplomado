@@ -7,7 +7,21 @@ import {
   Close,
 } from "@radix-ui/react-dialog";
 
+export const DialogContentFormParceiro = styled(Content)`
+  height: auto;
+  min-width: 300px;
+  background: white;
+  padding: 0;
+  border: 0.0625rem solid rgba(199, 199, 199, 0.3) !important;
+  border-radius: 0.25rem;
+
+  @media (max-width: 768px) {
+    margin: 1.25rem;
+  }
+`;
+
 export const DialogOverlay = styled(Overlay)`
+  z-index: 2;
   background: rgba(0 0 0 / 0.5);
   position: fixed;
   top: 0;
@@ -68,14 +82,39 @@ export const DialogClose = styled(Close)`
   }
 `;
 
+export const DialogCloseX = styled(Close)`
+  position: absolute;
+  margin-left: 650px;
+  margin-top: -1.25rem;
+  background-color: ${({ theme }) => theme.colors.button};
+  height: 1.5625rem;
+  width: 1.5625rem;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.8s all;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.button};
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    margin-left: 18.75rem;
+    margin-top: -3.125rem;
+  }
+`;
+
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-height: 600px;
-  padding: 5.75rem 8rem;
+  min-height: 400px;
+  padding: 2rem 4rem;
 
   .header {
     font-size: 1.875rem;

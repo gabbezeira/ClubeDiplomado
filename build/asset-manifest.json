@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f98b5ee9.css",
+    "main.js": "/static/js/main.27031bec.js",
+    "static/js/787.c0d129d2.chunk.js": "/static/js/787.c0d129d2.chunk.js",
+    "static/media/armchair.webp": "/static/media/armchair.b9a605ea798f2c8edd52.webp",
+    "static/media/banner-mobile.svg": "/static/media/banner-mobile.66364892b719713b0d25734b3b318b04.svg",
+    "static/media/banner.svg": "/static/media/banner.5d2e8562f645921ab48137cd7da820d8.svg",
+    "static/media/logo.webp": "/static/media/logo.f9d40f2dffbf6523fe8a.webp",
+    "static/media/burguer-menu-icon.svg": "/static/media/burguer-menu-icon.9c06944a21da379053f86e27e89bf00b.svg",
+    "index.html": "/index.html",
+    "main.f98b5ee9.css.map": "/static/css/main.f98b5ee9.css.map",
+    "main.27031bec.js.map": "/static/js/main.27031bec.js.map",
+    "787.c0d129d2.chunk.js.map": "/static/js/787.c0d129d2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f98b5ee9.css",
+    "static/js/main.27031bec.js"
+  ]
+}

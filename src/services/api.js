@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL:
-    "https://publicws.unipam.edu.br",
+  baseURL: "https://publicws.unipam.edu.br",
 });
 
 api.interceptors.request.use(
