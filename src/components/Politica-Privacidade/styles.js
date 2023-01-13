@@ -92,7 +92,7 @@ export const ButtonStyled = styled('button', {
 export const H1Styled = styled('span', {
   width: '100%',
   fontSize: '16px',
-  fontWeight: 700,
+  fontWeight: "400",
 })
 
 export const AStyled = styled('a', {
