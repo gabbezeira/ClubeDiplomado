@@ -1,8 +1,8 @@
 # Site do Clube Diplomado Unipam
 
-Este projeto foi desenvolvido enquanto eu trabalhava na empresa UNIPAM.
+Este projeto foi desenvolvido totalmente por mim enquanto eu trabalhava na empresa UNIPAM, inclusive o layout.
 
-## 🔧 Tipo de Projeto
+## 🔧 Informações do Projeto
 
 - Para usar crie a Node Modules com Yarn Install.
 
