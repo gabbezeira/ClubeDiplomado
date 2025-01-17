@@ -1,8 +1,13 @@
+<img src="image-readme.png" alt="exemplo imagem">
+
 # Site do Clube Diplomado Unipam
 
-Este projeto foi desenvolvido totalmente por mim enquanto eu trabalhava na empresa UNIPAM, inclusive o layout.
+Este projeto foi desenvolvido enquanto eu trabalhava na empresa UNIPAM.
 
-## 🔧 Informações do Projeto
+### Acessar
+[![Site](https://clubediplomado.unipam.edu.br)
+
+## 🔧 Tipo de Projeto
 
 - Para usar crie a Node Modules com Yarn Install.
 
