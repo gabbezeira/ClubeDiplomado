@@ -5,7 +5,7 @@
 Este projeto foi desenvolvido enquanto eu trabalhava na empresa UNIPAM.
 
 ### Acessar
-[![Site](https://clubediplomado.unipam.edu.br)
+[![Site](https://clubediplomado.unipam.edu.br)]
 
 ## 🔧 Tipo de Projeto
 
