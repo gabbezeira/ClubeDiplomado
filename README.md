@@ -1,6 +1,6 @@
 # Site do Clube Diplomado Unipam
 
-Este projeto está sendo desenvolvido enquanto eu trabalhava na empresa UNIPAM.
+Este projeto foi desenvolvido enquanto eu trabalhava na empresa UNIPAM.
 
 ## 🔧 Tipo de Projeto
 
